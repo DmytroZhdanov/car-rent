@@ -1,13 +1,25 @@
 import CarCard from "components/CarCard/CarCard";
+import { ListUl } from "./CarList.styled";
 
 export default function CarList() {
   return (
     <>
       <div>CarList component</div>
 
-      <ul>
+      <ListUl>
         <CarCard />
-      </ul>
+        <CarCard />
+        <CarCard />
+        <CarCard />
+        <CarCard />
+        <CarCard />
+        <CarCard />
+        <CarCard />
+        <CarCard />
+        <CarCard />
+        <CarCard />
+        <CarCard />
+      </ListUl>
     </>
   );
 }
