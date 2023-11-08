@@ -1,3 +1,4 @@
+import BasicModalWindow from "components/BasicModalWindow/BasicModalWindow";
 import CarCard from "components/CarCard/CarCard";
 import { ListUl } from "./CarList.styled";
 
@@ -20,6 +21,8 @@ export default function CarList() {
         <CarCard />
         <CarCard />
       </ListUl>
+
+      <BasicModalWindow></BasicModalWindow>
     </>
   );
 }

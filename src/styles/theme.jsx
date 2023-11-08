@@ -33,6 +33,8 @@ export const theme = {
 
     blue: "#3470FF",
     blueHover: "#0B44CD",
+
+    backdropBackground: "rgba(18, 20, 23, 0.50)",
   },
 
   // Breakpoints

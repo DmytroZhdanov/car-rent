@@ -32,6 +32,7 @@ export const FavoriteButton = styled.button`
   position: absolute;
   top: 14px;
   right: 14px;
+  z-index: 2;
 
   display: flex;
   justify-content: center;
@@ -47,7 +48,6 @@ export const FavoriteButton = styled.button`
     stroke: ${({ theme, favorite }) => (favorite ? theme.color.blue : theme.color.white)};
     fill: ${({ theme, favorite }) => (favorite ? theme.color.blue : "transparent")};
 
-    z-index: 2;
     transition: transform ${({ theme }) => theme.transition.main};
   }
 
