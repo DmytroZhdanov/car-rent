@@ -29,15 +29,18 @@ export const Img = styled.img`
 `;
 
 export const FavoriteButton = styled.button`
-  width: 18px;
-  height: 18px;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0;
   background-color: transparent;
 
   & > svg {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-
     width: 18px;
     height: 18px;
 
@@ -46,11 +49,11 @@ export const FavoriteButton = styled.button`
 
     z-index: 2;
     transition: transform ${({ theme }) => theme.transition.main};
+  }
 
-    &:hover,
-    &:focus {
-      transform: scale(1.2);
-    }
+  &:hover > svg,
+  &:focus > svg {
+    transform: scale(1.2);
   }
 `;
 
