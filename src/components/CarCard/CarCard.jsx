@@ -2,6 +2,7 @@ import defaultCar from "assets/images/defaultCar.webp";
 import {
   Button,
   DetailsP,
+  FavoriteButton,
   ImageDiv,
   Img,
   ItemLi,
@@ -9,6 +10,8 @@ import {
   TitleDiv,
   TitleSpan,
 } from "./CarCard.styled";
+
+import sprite from "assets/sprite/sprite.svg";
 
 export default function CarCard() {
   return (
@@ -21,6 +24,12 @@ export default function CarCard() {
 
           <Img src={defaultCar} alt="Car" />
         </picture>
+
+        <FavoriteButton favorite={true}>
+          <svg>
+            <use href={`${sprite}#favorite`} />
+          </svg>
+        </FavoriteButton>
       </ImageDiv>
 
       <TitleDiv>

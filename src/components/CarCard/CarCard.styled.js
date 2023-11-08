@@ -28,6 +28,32 @@ export const Img = styled.img`
   height: 268px;
 `;
 
+export const FavoriteButton = styled.button`
+  width: 18px;
+  height: 18px;
+  background-color: transparent;
+
+  & > svg {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+
+    width: 18px;
+    height: 18px;
+
+    stroke: ${({ theme, favorite }) => (favorite ? theme.color.blue : theme.color.white)};
+    fill: ${({ theme, favorite }) => (favorite ? theme.color.blue : "transparent")};
+
+    z-index: 2;
+    transition: transform ${({ theme }) => theme.transition.main};
+
+    &:hover,
+    &:focus {
+      transform: scale(1.2);
+    }
+  }
+`;
+
 export const TitleDiv = styled.div`
   display: flex;
   justify-content: space-between;
