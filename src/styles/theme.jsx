@@ -48,4 +48,6 @@ export const theme = {
     main: "250ms cubic-bezier(0.165, 0.84, 0.44, 1.03)",
     modal: "300ms ease-in-out",
   },
+
+  gradient: "linear-gradient(180deg, rgba(18, 20, 23, 0.50) 2.5%, rgba(18, 20, 23, 0.00) 41.07%)",
 };

@@ -4,6 +4,7 @@ import { theme } from "./theme";
 
 import ManropeRegular from "assets/fonts/Manrope-Regular.ttf";
 import ManropeMedium from "assets/fonts/Manrope-Medium.ttf";
+import ManropeSemiBold from "assets/fonts/Manrope-SemiBold.ttf";
 
 export const GlobalStyles = css`
   ${emotionNormalize}
@@ -178,6 +179,12 @@ export const GlobalStyles = css`
     font-family: "Manrope";
     font-weight: 500;
     src: url(${ManropeMedium}) format("truetype");
+  }
+
+  @font-face {
+    font-family: "Manrope";
+    font-weight: 600;
+    src: url(${ManropeSemiBold}) format("truetype");
   }
   /* ========================= /Fonts ========================= */
 
