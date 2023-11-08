@@ -1,15 +1,19 @@
-import Loader from "components/Loader/Loader";
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
+
+import Loader from "components/Loader/Loader";
+import Header from "components/Header/Header";
 
 export default function Main() {
   return (
     <>
-      <div>Main page</div>
+      <Header />
 
-      <Suspense fallback={<Loader />}>
-        <Outlet />
-      </Suspense>
+      <main>
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
+      </main>
     </>
   );
 }
