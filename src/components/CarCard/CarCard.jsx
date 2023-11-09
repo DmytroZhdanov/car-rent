@@ -1,3 +1,7 @@
+import { useState } from "react";
+
+import BasicModalWindow from "components/BasicModalWindow/BasicModalWindow";
+import CarDetails from "components/CarDetails/CarDetails";
 import {
   Button,
   DetailsUl,
@@ -14,6 +18,8 @@ import sprite from "assets/sprite/sprite.svg";
 import defaultCar from "assets/images/defaultCar.webp";
 
 export default function CarCard() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <ItemLi>
       <ImageDiv>
@@ -50,7 +56,13 @@ export default function CarCard() {
         <li>Premium Sound System</li>
       </DetailsUl>
 
-      <Button type="button">Learn more</Button>
+      <Button type="button" onClick={() => setShowModal(true)}>
+        Learn more
+      </Button>
+
+      <BasicModalWindow isShown={showModal} onClose={() => setShowModal(false)}>
+        <CarDetails />
+      </BasicModalWindow>
     </ItemLi>
   );
 }

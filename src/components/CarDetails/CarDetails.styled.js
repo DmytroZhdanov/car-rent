@@ -1,15 +1,33 @@
 import styled from "@emotion/styled";
 
 export const ContainerDiv = styled.div`
-  width: 541px;
-  padding: 40px;
+  width: calc(100vw - 40px);
+  padding: 32px 20px;
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    width: 335px;
+    padding: 32px;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    width: 541px;
+    padding: 40px;
+  }
 `;
 
 export const Image = styled.img`
-  width: 461px;
-  height: 248px;
+  width: 240px;
+  aspect-ratio: ${461 / 248};
   border-radius: 14px;
   margin-bottom: 14px;
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    width: 271px;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    width: 461px;
+  }
 `;
 
 export const TitleH2 = styled.h2`
@@ -91,6 +109,7 @@ export const ConditionsSpan = styled.span`
 `;
 
 export const ButtonA = styled.a`
+  display: inline-block;
   padding: 12px 50px;
 
   font-weight: 600;

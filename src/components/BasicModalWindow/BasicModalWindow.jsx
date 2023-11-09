@@ -8,7 +8,7 @@ import { CloseModalButton, ModalDiv, ModalBackdropDiv } from "./BasicModalWindow
 import sprite from "assets/sprite/sprite.svg";
 
 export default function BasicModalWindow(props) {
-  const { onShow = true, type, onClose, children } = props;
+  const { isShown = true, type, onClose, children } = props;
 
   const modalRoot = document.querySelector("#modal-root");
 
@@ -16,13 +16,13 @@ export default function BasicModalWindow(props) {
   const nodeBackdropRef = useRef(null);
 
   useEffect(() => {
-    if (!onShow) return;
+    if (!isShown) return;
 
     const disableBodyScroll = disable => {
       document.body.style.overflow = disable ? "hidden" : "auto";
     };
 
-    if (onShow || modalRoot.children.length !== 0) {
+    if (isShown || modalRoot.children.length !== 0) {
       disableBodyScroll(true);
     }
 
@@ -38,12 +38,12 @@ export default function BasicModalWindow(props) {
       disableBodyScroll(false);
       window.removeEventListener("keydown", onEscKeyPress);
     };
-  }, [modalRoot.children.length, onShow, onClose]);
+  }, [modalRoot.children.length, isShown, onClose]);
 
   return createPortal(
     <>
       <CSSTransition
-        in={onShow}
+        in={isShown}
         nodeRef={nodeBackdropRef}
         timeout={400}
         classNames="backdrop-wrapper"
@@ -53,7 +53,7 @@ export default function BasicModalWindow(props) {
       </CSSTransition>
 
       <CSSTransition
-        in={onShow}
+        in={isShown}
         nodeRef={nodeModalRef}
         timeout={400}
         classNames="modal-wrapper"
@@ -76,6 +76,7 @@ export default function BasicModalWindow(props) {
 
 BasicModalWindow.propTypes = {
   onClose: PropTypes.func.isRequired,
+  type: PropTypes.string,
   children: PropTypes.node.isRequired,
-  onShow: PropTypes.bool,
+  isShown: PropTypes.bool,
 };

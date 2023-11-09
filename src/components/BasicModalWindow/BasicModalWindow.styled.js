@@ -34,6 +34,7 @@ export const ModalDiv = styled.div`
   top: 50%;
   left: 50%;
   z-index: 99;
+  max-height: 90vh;
 
   translate: -50% -50%;
   background-color: ${({ theme }) => theme.color.white};
@@ -68,8 +69,8 @@ export const ModalDiv = styled.div`
 
 export const CloseModalButton = styled.button`
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 8px;
+  right: 8px;
   z-index: 100;
 
   display: flex;
@@ -91,5 +92,15 @@ export const CloseModalButton = styled.button`
   &:hover > svg,
   &:focus > svg {
     transform: scale(1.2);
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    top: 12px;
+    right: 12px;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    top: 16px;
+    right: 16px;
   }
 `;
