@@ -1,7 +1,6 @@
-import defaultCar from "assets/images/defaultCar.webp";
 import {
   Button,
-  DetailsP,
+  DetailsUl,
   FavoriteButton,
   ImageDiv,
   Img,
@@ -12,6 +11,7 @@ import {
 } from "./CarCard.styled";
 
 import sprite from "assets/sprite/sprite.svg";
+import defaultCar from "assets/images/defaultCar.webp";
 
 export default function CarCard() {
   return (
@@ -40,9 +40,15 @@ export default function CarCard() {
         <PriceP>$50</PriceP>
       </TitleDiv>
 
-      <DetailsP>Lviv | Ukraine | Auto Rentals</DetailsP>
-
-      <DetailsP>Suv | Volvo | 9584 | Premium Sound System</DetailsP>
+      <DetailsUl>
+        <li>Lviv</li>
+        <li>Ukraine</li>
+        <li>Auto Rentals</li>
+        <li>Suv</li>
+        <li>Volvo</li>
+        <li>9584</li>
+        <li>Premium Sound System</li>
+      </DetailsUl>
 
       <Button type="button">Learn more</Button>
     </ItemLi>

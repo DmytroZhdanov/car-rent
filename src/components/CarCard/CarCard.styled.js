@@ -74,17 +74,19 @@ export const PriceP = styled.p`
   margin-right: 8px;
 `;
 
-export const DetailsP = styled.p`
+export const DetailsUl = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 6px;
+  row-gap: 4px;
   color: ${({ theme }) => theme.color.greyDescription};
   font-size: 12px;
   line-height: ${18 / 12};
+  margin-bottom: 28px;
 
-  &:nth-of-type(1) {
-    margin-bottom: 4px;
-  }
-
-  &:nth-of-type(2) {
-    margin-bottom: 28px;
+  & > li:not(:nth-of-type(1))::before {
+    content: "|";
+    margin-right: 6px;
   }
 `;
 

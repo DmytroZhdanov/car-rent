@@ -5,6 +5,8 @@ import { theme } from "./theme";
 import ManropeRegular from "assets/fonts/Manrope-Regular.ttf";
 import ManropeMedium from "assets/fonts/Manrope-Medium.ttf";
 import ManropeSemiBold from "assets/fonts/Manrope-SemiBold.ttf";
+import MontserratRegular from "assets/fonts/Montserrat-Regular.ttf";
+import MontserratSemiBold from "assets/fonts/Montserrat-SemiBold.ttf";
 
 export const GlobalStyles = css`
   ${emotionNormalize}
@@ -185,6 +187,18 @@ export const GlobalStyles = css`
     font-family: "Manrope";
     font-weight: 600;
     src: url(${ManropeSemiBold}) format("truetype");
+  }
+
+  @font-face {
+    font-family: "Montserrat";
+    font-weight: 400;
+    src: url(${MontserratRegular}) format("truetype");
+  }
+
+  @font-face {
+    font-family: "Montserrat";
+    font-weight: 600;
+    src: url(${MontserratSemiBold}) format("truetype");
   }
   /* ========================= /Fonts ========================= */
 
