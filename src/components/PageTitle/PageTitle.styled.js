@@ -1,14 +1,17 @@
 import styled from "@emotion/styled";
 
-export const TitleH1 = styled.h1`
+export const WrapperDiv = styled.div`
+  display: flex;
+  align-items: center;
   margin-top: 60px;
 
-  font-weight: 600;
-  font-size: 40px;
-  color: ${({ theme }) => theme.color.blue};
+  & > svg {
+    width: 40px;
+    height: 40px;
 
-  &::first-letter {
-    text-transform: uppercase;
+    margin-left: 8px;
+
+    fill: ${({ theme }) => theme.color.blue};
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
@@ -20,5 +23,15 @@ export const TitleH1 = styled.h1`
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.desktop}) {
     width: 1180px;
+  }
+`;
+
+export const TitleH1 = styled.h1`
+  font-weight: 600;
+  font-size: 40px;
+  color: ${({ theme }) => theme.color.blue};
+
+  &::first-letter {
+    text-transform: uppercase;
   }
 `;
