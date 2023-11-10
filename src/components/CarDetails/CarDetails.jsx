@@ -1,4 +1,3 @@
-import defaultCar from "assets/images/defaultCar.webp";
 import {
   ButtonA,
   ConditionsLi,
@@ -13,64 +12,80 @@ import {
   TitleSpan,
 } from "./CarDetails.styled";
 
-export default function CarDetails() {
+export default function CarDetails({ car }) {
+  const {
+    img,
+    make,
+    model,
+    year,
+    address,
+    id,
+    type,
+    fuelConsumption,
+    engineSize,
+    description,
+    accessories,
+    functionalities,
+    rentalConditions,
+    mileage,
+    price,
+  } = car;
+
+  const conditionsArray = rentalConditions.split("\n");
+  const ageRequirement = conditionsArray.find(item => item.includes("Minimum age: "));
+  const requiredAge = ageRequirement.slice(ageRequirement.length - 2, ageRequirement.length);
+  const restConditions = conditionsArray.filter(item => !item.includes("Minimum age: "));
+
   return (
     <ContainerDiv>
-      <picture>
-        <source srcSet={`${defaultCar} 1x, ${defaultCar} 2x`} type="image/webp" />
-
-        <source srcSet={`${defaultCar} 1x, ${defaultCar} 2x`} type="image/jpeg" />
-
-        <Image src={defaultCar} alt="Car" />
-      </picture>
+      <Image src={img} alt={`${make} ${model}`} />
 
       <TitleH2>
-        Volvo<TitleSpan> XC90</TitleSpan>, 2019
+        {make}
+        <TitleSpan> {model}</TitleSpan>, {year}
       </TitleH2>
 
       <DetailsUl>
-        <li>Lviv</li>
-        <li>Ukraine</li>
-        <li>Id: 9582</li>
-        <li>Year: 2008</li>
-        <li>type: Suv</li>
-        <li>Fuel consumption: 10.5</li>
-        <li>Engine Size: 3.6L V6</li>
+        <li>{address.split(",")[1]}</li>
+        <li>{address.split(",")[2]}</li>
+        <li>Id: {id}</li>
+        <li>Year: {year}</li>
+        <li>type: {type}</li>
+        <li>Fuel consumption: {fuelConsumption}</li>
+        <li>Engine Size: {engineSize}</li>
       </DetailsUl>
 
-      <DescriptionP>
-        The Buick Enclave is a stylish and spacious SUV known for its comfortable ride and luxurious
-        features.
-      </DescriptionP>
+      <DescriptionP>{description}</DescriptionP>
 
       <TitleH3>Accessories and functionalities:</TitleH3>
 
       <DetailsUl>
-        <li>Leather seats</li>
-        <li>Panoramic sunroof</li>
-        <li>Power liftgate</li>
-        <li>Premium audio system</li>
-        <li>Remote start</li>
-        <li>Blind-spot monitoring</li>
+        {accessories.map((item, index) => (
+          <li key={"a" + index}>{item}</li>
+        ))}
+
+        {functionalities.map((item, index) => (
+          <li key={"f" + index}>{item}</li>
+        ))}
       </DetailsUl>
 
       <TitleH3>Rental Conditions: </TitleH3>
 
       <ConditionsUl>
         <ConditionsLi>
-          Minimum age : <ConditionsSpan>25</ConditionsSpan>
+          Minimum age : <ConditionsSpan>{requiredAge}</ConditionsSpan>
         </ConditionsLi>
 
-        <ConditionsLi>Valid driver’s license</ConditionsLi>
-
-        <ConditionsLi>Security deposit required</ConditionsLi>
+        {restConditions.map((item, index) => (
+          <ConditionsLi key={index}>{item}</ConditionsLi>
+        ))}
 
         <ConditionsLi>
-          Mileage: <ConditionsSpan>5,858</ConditionsSpan>
+          Mileage: <ConditionsSpan>{mileage}</ConditionsSpan>
         </ConditionsLi>
 
         <ConditionsLi>
-          Price: <ConditionsSpan>40$</ConditionsSpan>
+          Price: <ConditionsSpan>{price}</ConditionsSpan>
         </ConditionsLi>
       </ConditionsUl>
 

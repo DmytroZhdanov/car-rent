@@ -15,21 +15,17 @@ import {
 } from "./CarCard.styled";
 
 import sprite from "assets/sprite/sprite.svg";
-import defaultCar from "assets/images/defaultCar.webp";
 
-export default function CarCard() {
+export default function CarCard({ car }) {
+  const { img, make, model, year, rentalPrice, address, rentalCompany, type, id, accessories } =
+    car;
+
   const [showModal, setShowModal] = useState(false);
 
   return (
     <ItemLi>
       <ImageDiv>
-        <picture>
-          <source srcSet={`${defaultCar} 1x, ${defaultCar} 2x`} type="image/webp" />
-
-          <source srcSet={`${defaultCar} 1x, ${defaultCar} 2x`} type="image/jpeg" />
-
-          <Img src={defaultCar} alt="Car" />
-        </picture>
+        <Img src={img} alt={`${make} ${model}`} />
 
         <FavoriteButton favorite={true}>
           <svg>
@@ -40,20 +36,21 @@ export default function CarCard() {
 
       <TitleDiv>
         <h2>
-          Volvo<TitleSpan> XC90</TitleSpan>, 2019
+          {make}
+          <TitleSpan> {model}</TitleSpan>, {year}
         </h2>
 
-        <PriceP>$50</PriceP>
+        <PriceP>{rentalPrice}</PriceP>
       </TitleDiv>
 
       <DetailsUl>
-        <li>Lviv</li>
-        <li>Ukraine</li>
-        <li>Auto Rentals</li>
-        <li>Suv</li>
-        <li>Volvo</li>
-        <li>9584</li>
-        <li>Premium Sound System</li>
+        <li>{address.split(",")[1]}</li>
+        <li>{address.split(",")[2]}</li>
+        <li>{rentalCompany}</li>
+        <li>{type}</li>
+        <li>{make}</li>
+        <li>{id}</li>
+        <li>{accessories[0]}</li>
       </DetailsUl>
 
       <Button type="button" onClick={() => setShowModal(true)}>
@@ -61,7 +58,7 @@ export default function CarCard() {
       </Button>
 
       <BasicModalWindow isShown={showModal} onClose={() => setShowModal(false)}>
-        <CarDetails />
+        <CarDetails car={car} />
       </BasicModalWindow>
     </ItemLi>
   );

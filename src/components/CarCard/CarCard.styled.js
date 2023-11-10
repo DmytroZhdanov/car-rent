@@ -26,6 +26,8 @@ export const ImageDiv = styled.div`
 export const Img = styled.img`
   width: 274px;
   height: 268px;
+
+  object-fit: cover;
 `;
 
 export const FavoriteButton = styled.button`
@@ -64,6 +66,15 @@ export const TitleDiv = styled.div`
 
   font-weight: 500;
   line-height: ${24 / 16};
+
+  & > h2 {
+    width: 216px;
+    height: 24px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 `;
 
 export const TitleSpan = styled.span`
@@ -79,7 +90,15 @@ export const DetailsUl = styled.ul`
   flex-wrap: wrap;
   column-gap: 6px;
   row-gap: 4px;
+
+  height: 40px;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
   color: ${({ theme }) => theme.color.greyDescription};
+
   font-size: 12px;
   line-height: ${18 / 12};
   margin-bottom: 28px;
