@@ -10,7 +10,6 @@ export default defineConfig({
       assets: "/src/assets",
       components: "/src/components",
       pages: "/src/pages",
-      redux: "/src/redux",
       styles: "/src/styles",
     },
   },
