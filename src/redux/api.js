@@ -31,9 +31,9 @@ export const api = createApi({
   }),
   endpoints: builder => ({
     getAllCars: builder.query({
-      query: () => ({ url: "/cars" }),
+      query: ({ page = 1, make }) => ({ url: "/cars", params: { page, make, limit: 12 } }),
     }),
   }),
 });
 
-export const { useGetAllCarsQuery } = api;
+export const { useLazyGetAllCarsQuery } = api;
