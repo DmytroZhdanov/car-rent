@@ -1,21 +1,25 @@
 import { Suspense } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useResolvedPath } from "react-router-dom";
 
 import Loader from "components/Loader/Loader";
 import Header from "components/Header/Header";
-import { ContainerDiv } from "./Main.styled";
+import { BackgroundDiv, ContainerDiv } from "./Main.styled";
 
 export default function Main() {
+  const { pathname } = useResolvedPath();
+
   return (
     <>
       <Header />
 
       <main>
-        <ContainerDiv>
-          <Suspense fallback={<Loader />}>
-            <Outlet />
-          </Suspense>
-        </ContainerDiv>
+        <BackgroundDiv pathname={pathname}>
+          <ContainerDiv>
+            <Suspense fallback={<Loader />}>
+              <Outlet />
+            </Suspense>
+          </ContainerDiv>
+        </BackgroundDiv>
       </main>
     </>
   );
