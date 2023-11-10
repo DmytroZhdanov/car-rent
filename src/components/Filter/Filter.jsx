@@ -12,58 +12,73 @@ import {
 } from "./Filter.styled";
 
 // import sprite from "assets/sprite/sprite.svg";
+import makers from "utils/makers";
+import { useState } from "react";
 
 const brandOptions = [
-  { value: "", label: "- - Select a car brand", selected: true },
-  { value: "buick", label: "buick" },
-  { value: "volvo", label: "volvo" },
-  { value: "hummer", label: "hummer" },
-  { value: "subaru", label: "subaru" },
-  { value: "mitsubishi", label: "mitsubishi" },
-  { value: "nissan", label: "nissan" },
-  { value: "lincoln", label: "lincoln" },
-  { value: "gmc", label: "gmc" },
-  { value: "hyundai", label: "hyundai" },
-  { value: "buick2", label: "buick2" },
-  { value: "volvo2", label: "volvo2" },
-  { value: "hummer2", label: "hummer2" },
-  { value: "subaru2", label: "subaru2" },
-  { value: "mitsubishi2", label: "mitsubishi2" },
-  { value: "nissan2", label: "nissan2" },
-  { value: "lincoln2", label: "lincoln2" },
-  { value: "gmc2", label: "gmc2" },
-  { value: "hyundai2", label: "hyundai2" },
+  { value: null, label: "- - Select a car brand", selected: true },
+  ...makers.map(maker => ({ value: maker, label: maker })),
 ];
 
-const priceOptions = [
-  { value: "", label: "- -" },
-  { value: "30", label: "30" },
-  { value: "40", label: "40" },
-  { value: "50", label: "50" },
-  { value: "60", label: "60" },
-  { value: "70", label: "70" },
-  { value: "80", label: "80" },
-  { value: "90", label: "90" },
-  { value: "100", label: "100" },
-  { value: "110", label: "110" },
-];
+const definePricesOptions = (min, max) => {
+  let pricesOptions = [{ value: null, label: "- -" }];
 
-export default function Filter() {
+  for (let i = min; i <= max; i += 10) {
+    pricesOptions.push({ value: `$${i}`, label: i });
+  }
+
+  return pricesOptions;
+};
+
+export default function Filter({ setFilter, setPage }) {
+  const [inputMake, setInputMake] = useState(null);
+  const [inputPrice, setInputPrice] = useState(null);
+  const [inputFrom, setInputFrom] = useState("");
+  const [inputTo, setInputTo] = useState("");
+
+  const handleFilterSubmit = e => {
+    e.preventDefault();
+
+    const filter = {
+      make: inputMake,
+      price: inputPrice,
+      mileage: {
+        from: inputFrom,
+        to: inputTo,
+      },
+    };
+
+    setPage(1);
+    setFilter(filter);
+  };
+
+  // const handleFilterChange = (option, id) => {
+  //   setPage(1);
+  //   setFilter(filter => ({ ...filter, [id]: option.value }));
+  // };
+
   return (
-    <Form>
+    <Form onSubmit={handleFilterSubmit}>
       <WrapperDiv>
         <Label htmlFor="carBrand">Car brand</Label>
         <Select
           id="carBrand"
           options={brandOptions}
+          defaultValue={brandOptions[0]}
           styles={styles}
-          placeholder="- - Select car brand"
+          onChange={option => setInputMake(option.value)}
         />
       </WrapperDiv>
 
       <WrapperDiv>
         <Label htmlFor="price">Price per 1 hour</Label>
-        <Select id="price" options={priceOptions} styles={styles} placeholder="" />
+        <Select
+          id="price"
+          options={definePricesOptions(30, 500)}
+          defaultValue={definePricesOptions(30, 500)[0]}
+          styles={styles}
+          onChange={option => setInputPrice(option.value)}
+        />
       </WrapperDiv>
 
       <WrapperDiv>
@@ -71,11 +86,21 @@ export default function Filter() {
 
         <InputWrapperDiv>
           <FromInputDiv>
-            <FromInput type="number" id="from" />
+            <FromInput
+              type="number"
+              id="from"
+              value={inputFrom}
+              onChange={({ target }) => setInputFrom(target.value)}
+            />
           </FromInputDiv>
 
           <ToInputDiv>
-            <ToInput type="number" id="to" />
+            <ToInput
+              type="number"
+              id="to"
+              value={inputTo}
+              onChange={({ target }) => setInputTo(target.value)}
+            />
           </ToInputDiv>
         </InputWrapperDiv>
       </WrapperDiv>

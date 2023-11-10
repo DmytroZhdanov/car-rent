@@ -1,4 +1,4 @@
-[
+const makers = [
   "Buick",
   "Volvo",
   "HUMMER",
@@ -23,5 +23,7 @@
   "Mazda",
   "Honda",
   "Toyota",
-  "Renault"
-]
+  "Renault",
+];
+
+export default makers;

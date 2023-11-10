@@ -12,32 +12,50 @@ export function Catalog() {
   const [filter, setFilter] = useState({
     make: null,
     price: null,
-    mileage: { from: null, to: null },
+    mileage: { from: "", to: "" },
   });
 
-  const [fetchCars, { data }] = useLazyGetAllCarsQuery();
+  const [fetchCars] = useLazyGetAllCarsQuery();
 
   useEffect(() => {
-    fetchCars({ page, make: filter.make });
-  }, [fetchCars, filter.make, page]);
+    const fetch = async () => {
+      const data = await fetchCars({ page, make: filter.make }).unwrap();
 
-  useEffect(() => {
-    if (data) {
-      setCars(cars => [...cars, ...data]);
+      if (page === 1) {
+        setCars(data);
+      } else {
+        setCars(cars => [...cars, ...data]);
+      }
 
       if (data.length < 12) {
         setIsFinalPage(true);
+      } else {
+        setIsFinalPage(false);
       }
-    }
-  }, [data]);
+    };
+
+    fetch();
+  }, [page, filter.make, fetchCars]);
+
+  const filterCars = cars => {
+    return cars.filter(
+      car =>
+        (filter.price
+          ? +car.rentalPrice.slice(1, car.rentalPrice.length) <
+            +filter.price.slice(1, filter.price.length)
+          : true) &&
+        (filter.mileage.from ? car.mileage > +filter.mileage.from : true) &&
+        (filter.mileage.to ? car.mileage < +filter.mileage.to : true)
+    );
+  };
 
   return (
     <>
       <PageTitle />
 
-      <Filter filter={filter} setFilter={setFilter} />
+      <Filter setFilter={setFilter} setPage={setPage} />
 
-      <CarList cars={cars} />
+      <CarList cars={filterCars(cars)} />
 
       {!isFinalPage && <Button onClick={() => setPage(page + 1)}>Load more</Button>}
     </>
