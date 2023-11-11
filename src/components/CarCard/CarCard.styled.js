@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
-import defaultCarImage from "assets/images/defaultCarImage.jpg";
+
+import * as noPhotoBackground from "utils/noPhotoBackground.js";
 
 export const ItemLi = styled.li`
   width: 274px;
@@ -31,7 +32,14 @@ export const Img = styled.img`
   object-fit: cover;
 
   background-color: ${({ theme }) => theme.color.imageBackground};
-  background-image: url(${defaultCarImage});
+  background-image: image-set(
+    url(${noPhotoBackground.cardWebp}) type("image/webp") 1x,
+    url(${noPhotoBackground.cardJpg}) type("image/jpeg") 1x,
+    url(${noPhotoBackground.card2xWebp}) type("image/webp") 2x,
+    url(${noPhotoBackground.card2xJpg}) type("image/jpeg") 2x,
+    url(${noPhotoBackground.card3xWebp}) type("image/webp") 3x,
+    url(${noPhotoBackground.card3xJpg}) type("image/jpeg") 3x
+  );
   background-position: bottom center;
   background-size: contain;
   background-repeat: no-repeat;

@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
-import background from "assets/images/background.jpg";
+
+import * as mainBackground from "utils/mainBackground.js";
 
 export const ContainerDiv = styled.div`
   width: 100%;
@@ -27,7 +28,16 @@ export const BackgroundDiv = styled.div(
       height: "calc(100vh - 63px)",
 
       backgroundColor: `${theme.color.blue}`,
-      background: `linear-gradient(0deg, rgba(52, 12, 255, 0.3) 0%, rgba(52, 12, 255, 0.3) 100%), url(${background}) center center no-repeat`,
+      background: `linear-gradient(0deg, rgba(52, 12, 255, 0.3) 0%, rgba(52, 12, 255, 0.3) 100%),
+                  image-set(
+                    url(${mainBackground.backgroundWebp}) type("image/webp") 1x,
+                    url(${mainBackground.backgroundJpg}) type("image/jpeg") 1x,
+                    url(${mainBackground.background2xWebp}) type("image/webp") 2x,
+                    url(${mainBackground.background2xJpg}) type("image/jpeg") 2x,
+                    url(${mainBackground.background3xWebp}) type("image/webp") 3x,
+                    url(${mainBackground.background3xJpg}) type("image/jpeg") 3x
+                  ) 
+                  center center no-repeat`,
       backgroundSize: "cover",
     }
 );

@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 
 export const ContainerDiv = styled.div`
+  height: 63px;
   padding: 12px 0;
   background-color: ${({ theme }) => theme.color.blue};
   color: ${({ theme }) => theme.color.greyBackgroundSelect};

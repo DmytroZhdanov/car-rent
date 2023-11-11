@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
-import defaultCarImage from "assets/images/defaultCarImage.jpg";
+
+import * as noPhotoBackground from "utils/noPhotoBackground.js";
 
 export const ContainerDiv = styled.div`
   width: calc(100vw - 40px);
@@ -22,7 +23,14 @@ export const Image = styled.img`
   border-radius: 14px;
   margin-bottom: 14px;
 
-  background-image: url(${defaultCarImage});
+  background-image: image-set(
+    url(${noPhotoBackground.modalMobWebp}) type("image/webp") 1x,
+    url(${noPhotoBackground.modalMobJpg}) type("image/jpeg") 1x,
+    url(${noPhotoBackground.modalMob2xWebp}) type("image/webp") 2x,
+    url(${noPhotoBackground.modalMob2xJpg}) type("image/jpeg") 2x,
+    url(${noPhotoBackground.modalMob3xWebp}) type("image/webp") 3x,
+    url(${noPhotoBackground.modalMob3xJpg}) type("image/jpeg") 3x
+  );
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -33,6 +41,15 @@ export const Image = styled.img`
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
     width: 461px;
+
+    background-image: image-set(
+      url(${noPhotoBackground.modalWebp}) type("image/webp") 1x,
+      url(${noPhotoBackground.modalJpg}) type("image/jpeg") 1x,
+      url(${noPhotoBackground.modal2xWebp}) type("image/webp") 2x,
+      url(${noPhotoBackground.modal2xJpg}) type("image/jpeg") 2x,
+      url(${noPhotoBackground.modal3xWebp}) type("image/webp") 3x,
+      url(${noPhotoBackground.modal3xJpg}) type("image/jpeg") 3x
+    );
   }
 `;
 

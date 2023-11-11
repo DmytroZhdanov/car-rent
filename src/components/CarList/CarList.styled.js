@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
-import listBackground from "assets/images/listBackground.png";
+
+import * as listBackground from "utils/listBackground.js";
 
 export const ListUl = styled.ul`
   display: flex;
@@ -27,14 +28,48 @@ export const ListUl = styled.ul`
 `;
 
 export const DefaultTextWrapperDiv = styled.div`
+  height: ${({ pathname }) => {
+    switch (pathname) {
+      case "/catalog":
+        return "calc(100vh - 347px)";
+
+      case "/favorite":
+        return "calc(100vh - 243px)";
+
+      default:
+        break;
+    }
+  }};
+
   font-size: 20px;
   line-height: ${24 / 20};
+
+  background-image: image-set(
+    url(${listBackground.mobWebp}) type("image/webp") 1x,
+    url(${listBackground.mobPng}) type("image/png") 1x,
+    url(${listBackground.mob2xWebp}) type("image/webp") 2x,
+    url(${listBackground.mob2xPng}) type("image/png") 2x,
+    url(${listBackground.mob3xWebp}) type("image/webp") 3x,
+    url(${listBackground.mob3xPng}) type("image/png") 3x
+  );
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right center;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
     width: 584px;
 
     margin-left: auto;
     margin-right: auto;
+
+    background-image: image-set(
+      url(${listBackground.tabWebp}) type("image/webp") 1x,
+      url(${listBackground.tabPng}) type("image/png") 1x,
+      url(${listBackground.tab2xWebp}) type("image/webp") 2x,
+      url(${listBackground.tab2xPng}) type("image/png") 2x,
+      url(${listBackground.tab3xWebp}) type("image/webp") 3x,
+      url(${listBackground.tab3xPng}) type("image/png") 3x
+    );
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.desktop}) {
@@ -52,9 +87,14 @@ export const DefaultTextWrapperDiv = styled.div`
       }
     }};
 
-    background-image: url(${listBackground});
-    background-size: contain;
-    background-repeat: no-repeat;
+    background-image: image-set(
+      url(${listBackground.deskWebp}) type("image/webp") 1x,
+      url(${listBackground.deskPng}) type("image/png") 1x,
+      url(${listBackground.desk2xWebp}) type("image/webp") 2x,
+      url(${listBackground.desk2xPng}) type("image/png") 2x,
+      url(${listBackground.desk3xWebp}) type("image/webp") 3x,
+      url(${listBackground.desk3xPng}) type("image/png") 3x
+    );
     background-position: right top;
   }
 `;
