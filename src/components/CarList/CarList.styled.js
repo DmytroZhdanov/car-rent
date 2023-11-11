@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
+import listBackground from "assets/images/listBackground.png";
 
 export const ListUl = styled.ul`
   display: flex;
@@ -38,6 +39,23 @@ export const DefaultTextWrapperDiv = styled.div`
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.desktop}) {
     width: 1180px;
+    height: ${({ pathname }) => {
+      switch (pathname) {
+        case "/catalog":
+          return "calc(100vh - 347px)";
+
+        case "/favorite":
+          return "calc(100vh - 243px)";
+
+        default:
+          break;
+      }
+    }};
+
+    background-image: url(${listBackground});
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right top;
   }
 `;
 

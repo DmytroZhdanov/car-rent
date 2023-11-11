@@ -38,7 +38,9 @@ export default function CarList({ cars }) {
 
   return (
     <>
-      {cars.length === 0 && <DefaultTextWrapperDiv>{generateDefaultText()}</DefaultTextWrapperDiv>}
+      {cars.length === 0 && (
+        <DefaultTextWrapperDiv pathname={pathname}>{generateDefaultText()}</DefaultTextWrapperDiv>
+      )}
 
       {cars.length > 0 && (
         <ListUl>
