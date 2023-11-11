@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import CarCard from "components/CarCard/CarCard";
 import { ListUl } from "./CarList.styled";
 
@@ -8,3 +10,7 @@ export default function CarList({ cars }) {
     </>
   );
 }
+
+CarList.propTypes = {
+  cars: PropTypes.arrayOf(PropTypes.object).isRequired,
+};

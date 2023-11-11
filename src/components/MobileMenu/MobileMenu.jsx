@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { createPortal } from "react-dom";
 import { CSSTransition } from "react-transition-group";
+import PropTypes from "prop-types";
 
 import NavBar from "components/NavBar/NavBar";
 import { ContactLink, MenuDiv } from "./MobileMenu.styled";
@@ -32,3 +33,8 @@ export default function MobileMenu({ onClose, isOpened }) {
     mobileMenuRoot
   );
 }
+
+MobileMenu.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  isOpened: PropTypes.bool.isRequired,
+};

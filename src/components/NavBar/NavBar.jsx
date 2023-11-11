@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import { ContainerDiv, NavBarLink } from "./NavBar.styled";
 
 export default function NavBar({ onClose }) {
@@ -19,3 +21,7 @@ export default function NavBar({ onClose }) {
     </ContainerDiv>
   );
 }
+
+NavBar.propTypes = {
+  onClose: PropTypes.func,
+};

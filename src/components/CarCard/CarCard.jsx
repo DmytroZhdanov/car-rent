@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import PropTypes from "prop-types";
 
 import BasicModalWindow from "components/BasicModalWindow/BasicModalWindow";
 import CarDetails from "components/CarDetails/CarDetails";
@@ -15,7 +17,6 @@ import {
 } from "./CarCard.styled";
 
 import sprite from "assets/sprite/sprite.svg";
-import { useDispatch, useSelector } from "react-redux";
 import { selectFavorites } from "src/redux/favorite/selectors";
 import { addToFavorite, removeFromFavorite } from "src/redux/favorite/favoriteSlice";
 
@@ -83,3 +84,18 @@ export default function CarCard({ car }) {
     </ItemLi>
   );
 }
+
+CarCard.propTypes = {
+  car: PropTypes.shape({
+    img: PropTypes.string.isRequired,
+    make: PropTypes.string.isRequired,
+    model: PropTypes.string.isRequired,
+    year: PropTypes.number.isRequired,
+    rentalPrice: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired,
+    rentalCompany: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    accessories: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
+};

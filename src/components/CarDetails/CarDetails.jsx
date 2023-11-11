@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import {
   ButtonA,
   ConditionsLi,
@@ -28,7 +30,7 @@ export default function CarDetails({ car }) {
     functionalities,
     rentalConditions,
     mileage,
-    price,
+    rentalPrice,
   } = car;
 
   const conditionsArray = rentalConditions.split("\n");
@@ -85,7 +87,7 @@ export default function CarDetails({ car }) {
         </ConditionsLi>
 
         <ConditionsLi>
-          Price: <ConditionsSpan>{price}</ConditionsSpan>
+          Price: <ConditionsSpan>{rentalPrice}</ConditionsSpan>
         </ConditionsLi>
       </ConditionsUl>
 
@@ -93,3 +95,23 @@ export default function CarDetails({ car }) {
     </ContainerDiv>
   );
 }
+
+CarDetails.propTypes = {
+  car: PropTypes.shape({
+    img: PropTypes.string.isRequired,
+    make: PropTypes.string.isRequired,
+    model: PropTypes.string.isRequired,
+    year: PropTypes.number.isRequired,
+    address: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    type: PropTypes.string.isRequired,
+    fuelConsumption: PropTypes.string.isRequired,
+    engineSize: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    accessories: PropTypes.arrayOf(PropTypes.string).isRequired,
+    functionalities: PropTypes.arrayOf(PropTypes.string).isRequired,
+    rentalConditions: PropTypes.string.isRequired,
+    mileage: PropTypes.number.isRequired,
+    rentalPrice: PropTypes.string.isRequired,
+  }).isRequired,
+};

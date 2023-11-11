@@ -1,5 +1,5 @@
-import { ThreeDots } from 'react-loader-spinner';
-import { Backdrop, Container } from './Loader.styled';
+import { ThreeDots } from "react-loader-spinner";
+import { Backdrop, Container } from "./Loader.styled";
 
 const Loader = () => {
   return (
@@ -9,7 +9,7 @@ const Loader = () => {
           height="80"
           width="80"
           radius="9"
-          color="#52c4db"
+          color="#3470FF"
           ariaLabel="three-dots-loading"
           visible={true}
         />

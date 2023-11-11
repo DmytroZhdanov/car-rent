@@ -1,4 +1,6 @@
 import Select from "react-select";
+import PropTypes from "prop-types";
+
 import {
   Button,
   Form,
@@ -52,11 +54,6 @@ export default function Filter({ setFilter, setPage }) {
     setFilter(filter);
   };
 
-  // const handleFilterChange = (option, id) => {
-  //   setPage(1);
-  //   setFilter(filter => ({ ...filter, [id]: option.value }));
-  // };
-
   return (
     <Form onSubmit={handleFilterSubmit}>
       <WrapperDiv>
@@ -109,6 +106,11 @@ export default function Filter({ setFilter, setPage }) {
     </Form>
   );
 }
+
+Filter.propTypes = {
+  setFilter: PropTypes.func.isRequired,
+  setPage: PropTypes.func.isRequired,
+};
 
 const styles = {
   control: (baseStyles, state) => ({
