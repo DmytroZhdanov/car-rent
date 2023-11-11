@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import BasicModalWindow from "components/BasicModalWindow/BasicModalWindow";
 import CarDetails from "components/CarDetails/CarDetails";
@@ -15,19 +15,39 @@ import {
 } from "./CarCard.styled";
 
 import sprite from "assets/sprite/sprite.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { selectFavorites } from "src/redux/favorite/selectors";
+import { addToFavorite, removeFromFavorite } from "src/redux/favorite/favoriteSlice";
 
 export default function CarCard({ car }) {
   const { img, make, model, year, rentalPrice, address, rentalCompany, type, id, accessories } =
     car;
 
   const [showModal, setShowModal] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const favorites = useSelector(selectFavorites);
+
+  useEffect(() => {
+    setIsFavorite(favorites.findIndex(item => item.id === id) !== -1);
+  }, [favorites, id]);
+
+  const handleFavoriteClick = () => {
+    if (!isFavorite) {
+      dispatch(addToFavorite(car));
+    } else {
+      dispatch(removeFromFavorite(id));
+    }
+  };
 
   return (
     <ItemLi>
       <ImageDiv>
         <Img src={img} alt={`${make} ${model}`} />
 
-        <FavoriteButton favorite={true}>
+        <FavoriteButton type="button" favorite={isFavorite} onClick={handleFavoriteClick}>
           <svg>
             <use href={`${sprite}#favorite`} />
           </svg>

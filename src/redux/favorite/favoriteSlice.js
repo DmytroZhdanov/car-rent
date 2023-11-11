@@ -6,10 +6,10 @@ const favoriteSlice = createSlice({
   name: "favorite",
   initialState,
   reducers: {
-    addToFavorite: (state, payload) => {
-      state.favorite = state.favorite.push(payload);
+    addToFavorite: (state, { payload }) => {
+      state.favorite.push(payload);
     },
-    removeFromFavorite: (state, payload) => {
+    removeFromFavorite: (state, { payload }) => {
       state.favorite = state.favorite.filter(car => car.id !== payload);
     },
   },
