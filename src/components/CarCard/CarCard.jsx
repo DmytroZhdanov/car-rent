@@ -21,8 +21,19 @@ import { selectFavorites } from "src/redux/favorite/selectors";
 import { addToFavorite, removeFromFavorite } from "src/redux/favorite/favoriteSlice";
 
 export default function CarCard({ car }) {
-  const { img, make, model, year, rentalPrice, address, rentalCompany, type, id, accessories } =
-    car;
+  const {
+    img,
+    make,
+    model,
+    year,
+    rentalPrice,
+    address,
+    rentalCompany,
+    type,
+    id,
+    mileage,
+    accessories,
+  } = car;
 
   const [showModal, setShowModal] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -70,7 +81,7 @@ export default function CarCard({ car }) {
         <li>{rentalCompany}</li>
         <li>{type}</li>
         <li>{make}</li>
-        <li>{id}</li>
+        <li>{mileage.toLocaleString("en-US")}</li>
         <li>{accessories[0]}</li>
       </DetailsUl>
 
@@ -96,6 +107,7 @@ CarCard.propTypes = {
     rentalCompany: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
+    mileage: PropTypes.number.isRequired,
     accessories: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
 };

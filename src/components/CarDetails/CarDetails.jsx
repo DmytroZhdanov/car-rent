@@ -83,7 +83,7 @@ export default function CarDetails({ car }) {
         ))}
 
         <ConditionsLi>
-          Mileage: <ConditionsSpan>{mileage}</ConditionsSpan>
+          Mileage: <ConditionsSpan>{mileage.toLocaleString("en-US")}</ConditionsSpan>
         </ConditionsLi>
 
         <ConditionsLi>
