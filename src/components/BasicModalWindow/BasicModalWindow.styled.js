@@ -38,6 +38,7 @@ export const ModalDiv = styled.div`
 
   translate: -50% -50%;
   background-color: ${({ theme }) => theme.color.white};
+  border: ${({ type }) => (type === "error" ? "2px solid red" : "none")};
   border-radius: 12px;
   overflow-y: auto;
 

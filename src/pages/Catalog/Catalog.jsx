@@ -3,11 +3,14 @@ import { useEffect, useState } from "react";
 import CarList from "components/CarList/CarList";
 import Filter from "components/Filter/Filter";
 import PageTitle from "components/PageTitle/PageTitle";
-import { Button } from "./Catalog.styled";
+import Loader from "components/Loader/Loader";
+import BasicModalWindow from "components/BasicModalWindow/BasicModalWindow";
+import { Button, ErrorMessageP } from "./Catalog.styled";
 
 import { useLazyGetAllCarsQuery } from "src/redux/api";
 
 export function Catalog() {
+  const [showError, setShowError] = useState(false);
   const [cars, setCars] = useState([]);
   const [page, setPage] = useState(1);
   const [isFinalPage, setIsFinalPage] = useState(false);
@@ -17,7 +20,7 @@ export function Catalog() {
     mileage: { from: "", to: "" },
   });
 
-  const [fetchCars] = useLazyGetAllCarsQuery();
+  const [fetchCars, { isLoading, isError, error }] = useLazyGetAllCarsQuery();
 
   useEffect(() => {
     const fetch = async () => {
@@ -38,6 +41,19 @@ export function Catalog() {
 
     fetch();
   }, [page, filter.make, fetchCars]);
+
+  useEffect(() => {
+    let id;
+
+    if (isError) {
+      setShowError(true);
+      id = setTimeout(setShowError, 3000, false);
+    } else {
+      setShowError(false);
+    }
+
+    return () => clearTimeout(id);
+  }, [isError]);
 
   const filterCars = cars => {
     return cars.filter(
@@ -60,6 +76,12 @@ export function Catalog() {
       <CarList cars={filterCars(cars)} />
 
       {!isFinalPage && <Button onClick={() => setPage(page + 1)}>Load more</Button>}
+
+      {isLoading && <Loader />}
+
+      <BasicModalWindow isShown={showError} type={"error"} onClose={() => setShowError(false)}>
+        <ErrorMessageP>Error: {error?.data}</ErrorMessageP>
+      </BasicModalWindow>
     </>
   );
 }

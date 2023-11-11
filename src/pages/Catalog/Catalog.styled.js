@@ -16,3 +16,7 @@ export const Button = styled.button`
     margin-bottom: 152px;
   }
 `;
+
+export const ErrorMessageP = styled.p`
+  padding: 40px 60px;
+`;
