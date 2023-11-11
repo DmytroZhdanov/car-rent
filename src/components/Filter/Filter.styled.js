@@ -30,6 +30,10 @@ export const Form = styled.form`
 
 export const WrapperDiv = styled.div`
   position: relative;
+
+  font-size: 18px;
+  font-weight: 500;
+  line-height: ${20 / 18};
 `;
 
 export const Label = styled.label`
@@ -56,6 +60,10 @@ export const InputWrapperDiv = styled.div`
     position: absolute;
     top: 14px;
     left: 24px;
+  }
+
+  & input:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.color.blue};
   }
 `;
 

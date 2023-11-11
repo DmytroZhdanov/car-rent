@@ -2,6 +2,8 @@ import { useState } from "react";
 import Select from "react-select";
 import PropTypes from "prop-types";
 
+import PriceControl from "components/PriceControl/PriceControl";
+import DropdownIndicator from "components/DropdownIndicator/DropdownIndicator";
 import {
   Button,
   Form,
@@ -14,7 +16,6 @@ import {
   WrapperDiv,
 } from "./Filter.styled";
 
-// import sprite from "assets/sprite/sprite.svg";
 import makers from "utils/makers";
 
 const brandOptions = [
@@ -64,6 +65,7 @@ export default function Filter({ setFilter, setPage }) {
           defaultValue={brandOptions[0]}
           styles={styles}
           onChange={option => setInputMake(option.value)}
+          components={{ DropdownIndicator }}
         />
       </WrapperDiv>
 
@@ -75,6 +77,7 @@ export default function Filter({ setFilter, setPage }) {
           defaultValue={definePricesOptions(30, 500)[0]}
           styles={styles}
           onChange={option => setInputPrice(option.value)}
+          components={{ Control: PriceControl, DropdownIndicator }}
         />
       </WrapperDiv>
 
@@ -117,35 +120,30 @@ const styles = {
     ...baseStyles,
     display: "flex",
     flexWrap: "nowrap",
-    gap: "8px",
     width: state.selectProps.id === "carBrand" ? "242px" : "136px",
     height: "48px",
-    padding: state.selectProps.id === "carBrand" ? "14px 18px" : "14px 18px 14px 52px",
+    padding: "14px 18px",
     border: "none",
     borderRadius: "14px",
     backgroundColor: "#F7F7FB",
-
-    "&::before": {
-      content: state.selectProps.id === "price" ? "'To $'" : "''",
-      position: "absolute",
-      left: "20px",
-      fontSize: "18px",
-      fontWeight: "500",
-      lineHeight: `${20 / 18}`,
-    },
   }),
   indicatorSeparator: () => ({ display: "none" }),
-  dropdownIndicator: () => ({ padding: "0" }),
+  dropdownIndicator: (_, state) => ({
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+    padding: "0",
+
+    transform: state.selectProps.menuIsOpen && "rotate(180deg)",
+    transition: "transform 250ms cubic-bezier(0.165, 0.84, 0.44, 1.03)",
+  }),
   valueContainer: baseStyles => ({
     ...baseStyles,
     width: "100%",
-    color: "#121417",
-    fontFamily: '"Manrope", sans-serif',
-    fontSize: "18px",
-    fontWeight: "500",
-    lineHeight: `${20 / 18}`,
     padding: "0",
   }),
+  singleValue: () => ({ color: "#121417" }),
   placeholder: () => ({}),
   input: () => ({ display: "none" }),
   menu: baseStyles => ({
@@ -163,7 +161,6 @@ const styles = {
   }),
   option: () => ({
     color: "rgba(18, 20, 23, 0.20)",
-    fontWeight: "500",
     lineHeight: `${20 / 16}`,
     cursor: "pointer",
     padding: "4px 0",
