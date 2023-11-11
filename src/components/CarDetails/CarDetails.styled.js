@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import defaultCarImage from "assets/images/defaultCarImage.jpg";
 
 export const ContainerDiv = styled.div`
   width: calc(100vw - 40px);
@@ -20,6 +21,11 @@ export const Image = styled.img`
   aspect-ratio: ${461 / 248};
   border-radius: 14px;
   margin-bottom: 14px;
+
+  background-image: url(${defaultCarImage});
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.mobile}) {
     width: 271px;

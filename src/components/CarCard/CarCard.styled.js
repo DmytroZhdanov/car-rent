@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import defaultCarImage from "assets/images/defaultCarImage.jpg";
 
 export const ItemLi = styled.li`
   width: 274px;
@@ -28,6 +29,12 @@ export const Img = styled.img`
   height: 268px;
 
   object-fit: cover;
+
+  background-color: ${({ theme }) => theme.color.imageBackground};
+  background-image: url(${defaultCarImage});
+  background-position: bottom center;
+  background-size: contain;
+  background-repeat: no-repeat;
 `;
 
 export const FavoriteButton = styled.button`
@@ -53,8 +60,7 @@ export const FavoriteButton = styled.button`
     transition: transform ${({ theme }) => theme.transition.main};
   }
 
-  &:hover > svg,
-  &:focus > svg {
+  &:hover > svg {
     transform: scale(1.2);
   }
 `;
