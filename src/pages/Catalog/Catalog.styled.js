@@ -18,5 +18,11 @@ export const Button = styled.button`
 `;
 
 export const ErrorMessageP = styled.p`
-  padding: 40px 60px;
+  width: 240px;
+  padding: 48px 40px;
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    width: 300px;
+    padding: 52px 80px;
+  }
 `;

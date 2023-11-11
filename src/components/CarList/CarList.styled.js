@@ -108,5 +108,7 @@ export const DefaultMainTextP = styled.p`
 
 export const CatalogLink = styled(Link)`
   color: ${({ theme }) => theme.color.blue};
+
   text-decoration: underline;
+  text-underline-offset: 4px;
 `;

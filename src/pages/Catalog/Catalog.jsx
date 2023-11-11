@@ -47,7 +47,7 @@ export function Catalog() {
 
     if (isError) {
       setShowError(true);
-      id = setTimeout(setShowError, 3000, false);
+      id = setTimeout(setShowError, 2000, false);
     } else {
       setShowError(false);
     }
@@ -75,7 +75,8 @@ export function Catalog() {
 
       <CarList cars={filterCars(cars)} />
 
-      {!isFinalPage && <Button onClick={() => setPage(page + 1)}>Load more</Button>}
+      {!isFinalPage ||
+        (filterCars(cars) === 0 && <Button onClick={() => setPage(page + 1)}>Load more</Button>)}
 
       {isLoading && <Loader />}
 
