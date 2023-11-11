@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 
 import { ContainerDiv, NavBarLink } from "./NavBar.styled";
 
+import ROUTER from "utils/router";
+
 export default function NavBar({ onClose }) {
   const handleClick = () => {
     if (!onClose) return;
@@ -11,11 +13,11 @@ export default function NavBar({ onClose }) {
 
   return (
     <ContainerDiv>
-      <NavBarLink to="catalog" onClick={handleClick}>
+      <NavBarLink to={ROUTER.CATALOG} onClick={handleClick}>
         Catalog
       </NavBarLink>
 
-      <NavBarLink to="favorite" onClick={handleClick}>
+      <NavBarLink to={ROUTER.FAVORITE} onClick={handleClick}>
         Favorite
       </NavBarLink>
     </ContainerDiv>

@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 
+import ROUTER from "utils/router";
 import * as listBackground from "utils/listBackground.js";
 
 export const ListUl = styled.ul`
@@ -30,10 +31,10 @@ export const ListUl = styled.ul`
 export const DefaultTextWrapperDiv = styled.div`
   height: ${({ pathname }) => {
     switch (pathname) {
-      case "/catalog":
+      case `/${ROUTER.CATALOG}`:
         return "calc(100vh - 347px)";
 
-      case "/favorite":
+      case `/${ROUTER.FAVORITE}`:
         return "calc(100vh - 243px)";
 
       default:
@@ -76,10 +77,10 @@ export const DefaultTextWrapperDiv = styled.div`
     width: 1180px;
     height: ${({ pathname }) => {
       switch (pathname) {
-        case "/catalog":
+        case `/${ROUTER.CATALOG}`:
           return "calc(100vh - 347px)";
 
-        case "/favorite":
+        case `/${ROUTER.FAVORITE}`:
           return "calc(100vh - 243px)";
 
         default:

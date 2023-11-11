@@ -1,12 +1,13 @@
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 
 import Main from "pages/Main/Main";
+import ROUTER from "utils/router";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: ROUTER.MAIN,
     element: <Main />,
-    errorElement: <Navigate to="/" />,
+    errorElement: <Navigate to={ROUTER.MAIN} />,
     children: [
       {
         index: true,
@@ -16,14 +17,14 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "catalog",
+        path: ROUTER.CATALOG,
         async lazy() {
           let { Catalog } = await import("pages/Catalog/Catalog");
           return { Component: Catalog };
         },
       },
       {
-        path: "favorite",
+        path: ROUTER.FAVORITE,
         async lazy() {
           let { Favorite } = await import("pages/Favorite/Favorite");
           return { Component: Favorite };

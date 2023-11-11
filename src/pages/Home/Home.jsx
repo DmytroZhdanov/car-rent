@@ -1,5 +1,7 @@
 import { ActionP, ContainerDiv, DescriptionP, StartLink, TitleH1 } from "./Home.styled";
 
+import ROUTER from "utils/router";
+
 export function Home() {
   return (
     <ContainerDiv>
@@ -8,8 +10,8 @@ export function Home() {
       <DescriptionP>Your perfect place to find a car to rent!</DescriptionP>
 
       <ActionP>
-        Click <StartLink to="catalog">Start</StartLink> to commence discovering our wide selection
-        of cars!
+        Click <StartLink to={ROUTER.CATALOG}>Start</StartLink> to commence discovering our wide
+        selection of cars!
       </ActionP>
     </ContainerDiv>
   );

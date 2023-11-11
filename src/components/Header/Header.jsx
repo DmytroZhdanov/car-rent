@@ -4,6 +4,7 @@ import NavBar from "components/NavBar/NavBar";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
+import ROUTER from "utils/router";
 import { BackdropDiv, ContainerDiv, LogoLink, WrapperDiv } from "./Header.styled";
 
 export default function Header() {
@@ -47,7 +48,7 @@ export default function Header() {
   return (
     <ContainerDiv>
       <WrapperDiv>
-        <LogoLink to="/">
+        <LogoLink to={ROUTER.MAIN}>
           <svg>
             <use href={`${sprite}#logo`}></use>
           </svg>

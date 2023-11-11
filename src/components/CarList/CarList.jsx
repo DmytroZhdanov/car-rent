@@ -3,13 +3,14 @@ import PropTypes from "prop-types";
 
 import CarCard from "components/CarCard/CarCard";
 import { CatalogLink, DefaultMainTextP, DefaultTextWrapperDiv, ListUl } from "./CarList.styled";
+import ROUTER from "utils/router";
 
 export default function CarList({ cars }) {
   const { pathname } = useResolvedPath();
 
   const generateDefaultText = () => {
     switch (pathname) {
-      case "/catalog":
+      case `/${ROUTER.CATALOG}`:
         return (
           <>
             <DefaultMainTextP>
@@ -20,13 +21,14 @@ export default function CarList({ cars }) {
           </>
         );
 
-      case "/favorite":
+      case `/${ROUTER.FAVORITE}`:
         return (
           <>
             <DefaultMainTextP>You don&apos;t have any favorite cars yet...</DefaultMainTextP>
 
             <p>
-              Go to <CatalogLink to="../catalog">Catalog</CatalogLink> to look for the best match!
+              Go to <CatalogLink to={`../${ROUTER.CATALOG}`}>Catalog</CatalogLink> to look for the
+              best match!
             </p>
           </>
         );

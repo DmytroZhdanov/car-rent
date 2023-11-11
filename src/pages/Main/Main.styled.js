@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 
+import ROUTER from "utils/router";
 import * as mainBackground from "utils/mainBackground.js";
 
 export const ContainerDiv = styled.div`
@@ -23,7 +24,7 @@ export const ContainerDiv = styled.div`
 
 export const BackgroundDiv = styled.div(
   ({ pathname, theme }) =>
-    pathname === "/" && {
+    pathname === ROUTER.MAIN && {
       width: "100vw",
       height: "calc(100vh - 63px)",
 
