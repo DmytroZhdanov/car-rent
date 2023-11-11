@@ -31,3 +31,65 @@ export const BackgroundDiv = styled.div(
       backgroundSize: "cover",
     }
 );
+
+export const UpButton = styled.button`
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 2;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 2px solid ${({ theme }) => theme.color.blue};
+  border-radius: 50%;
+
+  background-color: ${({ theme }) => theme.color.greyBackgroundSelect};
+
+  & > svg {
+    fill: ${({ theme }) => theme.color.blue};
+  }
+
+  @media screen and (min-width: 434px) {
+    right: calc(50vw - 197px);
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    bottom: 100px;
+    right: calc(50vw - 362px);
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoint.desktop}) {
+    right: calc(50vw - 674px);
+
+    width: 52px;
+    height: 52px;
+  }
+
+  &.upButton-enter {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  &.upButton-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: transform ${({ theme }) => theme.transition.main};
+  }
+
+  /* For unmounting */
+  &.upButton-exit {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  &.upButton-exit-active {
+    opacity: 1;
+    transform: scale(0);
+    transition: transform ${({ theme }) => theme.transition.main};
+  }
+`;

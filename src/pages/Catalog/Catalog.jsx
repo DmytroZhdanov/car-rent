@@ -1,9 +1,11 @@
+import { useEffect, useState } from "react";
+
 import CarList from "components/CarList/CarList";
 import Filter from "components/Filter/Filter";
 import PageTitle from "components/PageTitle/PageTitle";
-import { useEffect, useState } from "react";
-import { useLazyGetAllCarsQuery } from "src/redux/api";
 import { Button } from "./Catalog.styled";
+
+import { useLazyGetAllCarsQuery } from "src/redux/api";
 
 export function Catalog() {
   const [cars, setCars] = useState([]);
