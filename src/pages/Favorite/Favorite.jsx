@@ -2,6 +2,7 @@ import CarList from "components/CarList/CarList";
 import PageTitle from "components/PageTitle/PageTitle";
 import { useSelector } from "react-redux";
 import { selectFavorites } from "src/redux/favorite/selectors";
+import { ListWrapperDiv } from "./Favorite.styled";
 
 export function Favorite() {
   const favorites = useSelector(selectFavorites);
@@ -10,7 +11,9 @@ export function Favorite() {
     <>
       <PageTitle />
 
-      <CarList cars={favorites} />
+      <ListWrapperDiv>
+        <CarList cars={favorites} />
+      </ListWrapperDiv>
     </>
   );
 }
