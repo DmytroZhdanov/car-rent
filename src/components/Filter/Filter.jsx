@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Select from "react-select";
 import PropTypes from "prop-types";
 
@@ -15,7 +16,6 @@ import {
 
 // import sprite from "assets/sprite/sprite.svg";
 import makers from "utils/makers";
-import { useState } from "react";
 
 const brandOptions = [
   { value: null, label: "- - Select a car brand", selected: true },
@@ -118,7 +118,7 @@ const styles = {
     display: "flex",
     flexWrap: "nowrap",
     gap: "8px",
-    minWidth: state.selectProps.id === "carBrand" ? "224px" : "125px",
+    width: state.selectProps.id === "carBrand" ? "242px" : "136px",
     height: "48px",
     padding: state.selectProps.id === "carBrand" ? "14px 18px" : "14px 18px 14px 52px",
     border: "none",
