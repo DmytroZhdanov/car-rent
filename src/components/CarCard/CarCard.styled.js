@@ -102,7 +102,7 @@ export const PriceP = styled.p`
 export const DetailsUl = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  column-gap: 6px;
+  column-gap: 12px;
   row-gap: 4px;
 
   height: 40px;
@@ -117,10 +117,8 @@ export const DetailsUl = styled.ul`
   line-height: ${18 / 12};
   margin-bottom: 28px;
 
-  & > li:not(:nth-of-type(1))::before {
-    content: "|";
-    margin-right: 6px;
-  }
+  list-style-type: "|  ";
+  list-style-position: outside;
 `;
 
 export const Button = styled.button`

@@ -34,7 +34,7 @@ export const ModalDiv = styled.div`
   top: 50%;
   left: 50%;
   z-index: 99;
-  max-height: 90vh;
+  max-height: 95vh;
 
   translate: -50% -50%;
   background-color: ${({ theme }) => theme.color.white};

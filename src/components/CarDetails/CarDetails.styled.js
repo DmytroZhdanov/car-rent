@@ -68,7 +68,7 @@ export const TitleSpan = styled.span`
 export const DetailsUl = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  column-gap: 6px;
+  column-gap: 12px;
   row-gap: 4px;
 
   font-size: 12px;
@@ -76,10 +76,9 @@ export const DetailsUl = styled.ul`
 
   color: ${({ theme }) => theme.color.greyDescription};
 
-  & > li:not(:nth-of-type(1))::before {
-    content: "|";
-    margin-right: 6px;
-  }
+  list-style-type: "|  ";
+  list-style-position: outside;
+  overflow: hidden;
 
   &:nth-of-type(1) {
     margin-bottom: 14px;
