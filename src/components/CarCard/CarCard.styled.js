@@ -32,6 +32,8 @@ export const Img = styled.img`
   width: 274px;
   height: 268px;
 
+  font-size: 0;
+
   object-fit: cover;
 
   background-color: ${({ theme }) => theme.color.imageBackground};

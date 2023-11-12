@@ -23,6 +23,8 @@ export const Image = styled.img`
   border-radius: 14px;
   margin-bottom: 14px;
 
+  font-size: 0;
+
   background-image: image-set(
     url(${noPhotoBackground.modalMobWebp}) type("image/webp") 1x,
     url(${noPhotoBackground.modalMobJpg}) type("image/jpeg") 1x,
