@@ -5,8 +5,11 @@ import CarCard from "components/CarCard/CarCard";
 import { CatalogLink, DefaultMainTextP, DefaultTextWrapperDiv, ListUl } from "./CarList.styled";
 
 import ROUTER from "utils/router";
+import { useTranslation } from "react-i18next";
 
 export default function CarList({ cars }) {
+  const { t } = useTranslation();
+
   const { pathname } = useResolvedPath();
 
   /**
@@ -19,22 +22,21 @@ export default function CarList({ cars }) {
       case `/${ROUTER.CATALOG}`:
         return (
           <>
-            <DefaultMainTextP>
-              Sorry, we couldn&apos;t find any adds matching your query...
-            </DefaultMainTextP>
+            <DefaultMainTextP>{t("carList.defaultTextCatalog1")}</DefaultMainTextP>
 
-            <p>Try to change the filter parameters to find a match!</p>
+            <p>{t("carList.defaultTextCatalog2")}</p>
           </>
         );
 
       case `/${ROUTER.FAVORITE}`:
         return (
           <>
-            <DefaultMainTextP>You don&apos;t have any favorite cars yet...</DefaultMainTextP>
+            <DefaultMainTextP>{t("carList.defaultTextFavorite1")}</DefaultMainTextP>
 
             <p>
-              Go to <CatalogLink to={`../${ROUTER.CATALOG}`}>Catalog</CatalogLink> to look for the
-              best match!
+              {t("carList.goTo")}
+              <CatalogLink to={`../${ROUTER.CATALOG}`}>{t("carList.catalog")}</CatalogLink>
+              {t("carList.restDefaultFavorite")}
             </p>
           </>
         );

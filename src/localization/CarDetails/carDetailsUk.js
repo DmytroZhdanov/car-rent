@@ -1,0 +1,14 @@
+const carDetailsUk = {
+  minimumAge: "Мінімальний вік: ",
+  year: "Рік: ",
+  type: "Тип: ",
+  fuelConsumption: "Витрата палива: ",
+  engineSize: "Двигун: ",
+  accessoriesTitle: "Аксесуари та функції:",
+  rentalConditionsTitle: "Умови оренди:",
+  mileage: "Пробіг: ",
+  price: "Вартість: ",
+  rentalCar: "Орендувати",
+};
+
+export default carDetailsUk;

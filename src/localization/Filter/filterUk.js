@@ -1,0 +1,11 @@
+const filterUk = {
+  defaultOption: "- - Оберіть марку",
+  carBrand: "Марка",
+  price: "Ціна за годину",
+  mileage: "Пробіг, км",
+  from: "Від",
+  to: "До",
+  search: "Пошук",
+};
+
+export default filterUk;

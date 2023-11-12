@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import CarList from "components/CarList/CarList";
 import Filter from "components/Filter/Filter";
@@ -10,6 +11,9 @@ import { Button, ErrorMessageP } from "./Catalog.styled";
 import { useLazyGetAllCarsQuery } from "src/redux/api";
 
 export function Catalog() {
+  const { t, i18n } = useTranslation();
+  const language = i18n.resolvedLanguage;
+
   const [showError, setShowError] = useState(false);
   const [cars, setCars] = useState([]);
   const [page, setPage] = useState(1);
@@ -48,7 +52,7 @@ export function Catalog() {
         );
       };
 
-      const data = await fetchCars({ page, make: filter.make }).unwrap();
+      const data = await fetchCars({ page, make: filter.make, language }).unwrap();
 
       if (page === 1) {
         setCars(filterCars(data));
@@ -74,7 +78,7 @@ export function Catalog() {
     };
 
     fetch();
-  }, [page, filter, fetchCars]);
+  }, [page, filter, fetchCars, language]);
 
   useEffect(() => {
     let id;
@@ -98,13 +102,16 @@ export function Catalog() {
       <CarList cars={cars} />
 
       {(!isFinalPage || (!isFinalPage && cars.length > 0)) && (
-        <Button onClick={() => setPage(page + 1)}>Load more</Button>
+        <Button onClick={() => setPage(page + 1)}>{t("catalog.loadMore")}</Button>
       )}
 
       {isFetching && <Loader />}
 
       <BasicModalWindow isShown={showError} type={"error"} onClose={() => setShowError(false)}>
-        <ErrorMessageP>Error: {error?.data}</ErrorMessageP>
+        <ErrorMessageP>
+          {t("catalog.error")}
+          {error?.data}
+        </ErrorMessageP>
       </BasicModalWindow>
     </>
   );

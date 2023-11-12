@@ -19,6 +19,7 @@ import {
 import sprite from "assets/sprite/sprite.svg";
 import { selectFavorites } from "src/redux/favorite/selectors";
 import { addToFavorite, removeFromFavorite } from "src/redux/favorite/favoriteSlice";
+import { useTranslation } from "react-i18next";
 
 export default function CarCard({ car }) {
   const {
@@ -34,6 +35,8 @@ export default function CarCard({ car }) {
     mileage,
     accessories,
   } = car;
+
+  const { t } = useTranslation();
 
   const [showModal, setShowModal] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -86,7 +89,7 @@ export default function CarCard({ car }) {
       </DetailsUl>
 
       <Button type="button" onClick={() => setShowModal(true)}>
-        Learn more
+        {t("carCard.learnMore")}
       </Button>
 
       <BasicModalWindow isShown={showModal} onClose={() => setShowModal(false)}>

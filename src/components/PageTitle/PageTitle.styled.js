@@ -30,8 +30,4 @@ export const TitleH1 = styled.h1`
   font-weight: 600;
   font-size: 40px;
   color: ${({ theme }) => theme.color.blue};
-
-  &::first-letter {
-    text-transform: uppercase;
-  }
 `;

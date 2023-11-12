@@ -1,17 +1,22 @@
+import { useTranslation } from "react-i18next";
+
 import { ActionP, ContainerDiv, DescriptionP, StartLink, TitleH1 } from "./Home.styled";
 
 import ROUTER from "utils/router";
 
 export function Home() {
+  const { t } = useTranslation();
+
   return (
     <ContainerDiv>
-      <TitleH1>Welcome to Car Rent!</TitleH1>
+      <TitleH1>{t("home.title")}</TitleH1>
 
-      <DescriptionP>Your perfect place to find a car to rent!</DescriptionP>
+      <DescriptionP>{t("home.description")}</DescriptionP>
 
       <ActionP>
-        Click <StartLink to={ROUTER.CATALOG}>Start</StartLink> to commence discovering our wide
-        selection of cars!
+        {t("home.click")}
+        <StartLink to={ROUTER.CATALOG}>{t("home.link")}</StartLink>
+        {t("home.actionRest")}
       </ActionP>
     </ContainerDiv>
   );

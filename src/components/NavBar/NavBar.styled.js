@@ -21,7 +21,6 @@ export const ContainerDiv = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.desktop}) {
     gap: 12px;
 
-    margin-left: auto;
     margin-right: 52px;
   }
 `;

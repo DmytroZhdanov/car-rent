@@ -18,16 +18,7 @@ import {
 } from "./Filter.styled";
 
 import makers from "utils/makers";
-
-// As mockapi.io doesn't provide an api to return array of all car brands mentioned in adverts
-// here is a solution to keep this array as a static information.
-//
-// Another solution is to create a hook in api.js file (to simulate backend) which will return
-// such array. But it's require to fetch all adverts and will increase page loading time.
-const brandOptions = [
-  { value: null, label: "- - Select a car brand", selected: true },
-  ...makers.map(maker => ({ value: maker, label: maker })),
-];
+import { useTranslation } from "react-i18next";
 
 /**
  * Generate Array of price options for Select component
@@ -47,10 +38,22 @@ const definePricesOptions = (min, max) => {
 };
 
 export default function Filter({ setFilter, setPage }) {
+  const { t } = useTranslation();
+
   const [inputMake, setInputMake] = useState(null);
   const [inputPrice, setInputPrice] = useState(null);
   const [inputFrom, setInputFrom] = useState("");
   const [inputTo, setInputTo] = useState("");
+
+  // As mockapi.io doesn't provide an api to return array of all car brands mentioned in adverts
+  // here is a solution to keep this array as a static information.
+  //
+  // Another solution is to create a hook in api.js file (to simulate backend) which will return
+  // such array. But it's require to fetch all adverts and will increase page loading time.
+  const brandOptions = [
+    { value: null, label: t("filter.defaultOption"), selected: true },
+    ...makers.map(maker => ({ value: maker, label: maker })),
+  ];
 
   /**
    * Set page to 1 and set filter data for fetching appropriate adverts
@@ -76,7 +79,7 @@ export default function Filter({ setFilter, setPage }) {
   return (
     <Form onSubmit={handleFilterSubmit}>
       <WrapperDiv>
-        <Label htmlFor="carBrand">Car brand</Label>
+        <Label htmlFor="carBrand">{t("filter.carBrand")}</Label>
 
         <Select
           inputId="carBrand"
@@ -89,7 +92,7 @@ export default function Filter({ setFilter, setPage }) {
       </WrapperDiv>
 
       <WrapperDiv>
-        <Label htmlFor="price">Price per 1 hour</Label>
+        <Label htmlFor="price">{t("filter.price")}</Label>
 
         <Select
           inputId="price"
@@ -102,11 +105,11 @@ export default function Filter({ setFilter, setPage }) {
       </WrapperDiv>
 
       <fieldset>
-        <Legend htmlFor="mileage">Car milage, km</Legend>
+        <Legend htmlFor="mileage">{t("filter.mileage")}</Legend>
 
         <InputWrapperDiv>
           <InputDiv>
-            <MileageLabel htmlFor="from">From</MileageLabel>
+            <MileageLabel htmlFor="from">{t("filter.from")}</MileageLabel>
 
             <FromInput
               type="number"
@@ -117,7 +120,7 @@ export default function Filter({ setFilter, setPage }) {
           </InputDiv>
 
           <InputDiv>
-            <MileageLabel htmlFor="to">To</MileageLabel>
+            <MileageLabel htmlFor="to">{t("filter.to")}</MileageLabel>
 
             <ToInput
               type="number"
@@ -129,7 +132,7 @@ export default function Filter({ setFilter, setPage }) {
         </InputWrapperDiv>
       </fieldset>
 
-      <Button>Search</Button>
+      <Button>{t("filter.search")}</Button>
     </Form>
   );
 }

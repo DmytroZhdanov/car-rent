@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 
 import {
   ButtonA,
@@ -33,10 +34,12 @@ export default function CarDetails({ car }) {
     rentalPrice,
   } = car;
 
+  const { t } = useTranslation();
+
   const conditionsArray = rentalConditions.split("\n");
-  const ageRequirement = conditionsArray.find(item => item.includes("Minimum age: "));
+  const ageRequirement = conditionsArray.find(item => item.includes(t("carDetails.minimumAge")));
   const requiredAge = ageRequirement.slice(ageRequirement.length - 2, ageRequirement.length);
-  const restConditions = conditionsArray.filter(item => !item.includes("Minimum age: "));
+  const restConditions = conditionsArray.filter(item => !item.includes(t("carDetails.minimumAge")));
 
   return (
     <ContainerDiv>
@@ -51,15 +54,27 @@ export default function CarDetails({ car }) {
         <li>{address.split(",")[1]}</li>
         <li>{address.split(",")[2]}</li>
         <li>Id: {id}</li>
-        <li>Year: {year}</li>
-        <li>type: {type}</li>
-        <li>Fuel consumption: {fuelConsumption}</li>
-        <li>Engine Size: {engineSize}</li>
+        <li>
+          {t("carDetails.year")}
+          {year}
+        </li>
+        <li>
+          {t("carDetails.type")}
+          {type}
+        </li>
+        <li>
+          {t("carDetails.fuelConsumption")}
+          {fuelConsumption}
+        </li>
+        <li>
+          {t("carDetails.engineSize")}
+          {engineSize}
+        </li>
       </DetailsUl>
 
       <DescriptionP>{description}</DescriptionP>
 
-      <TitleH3>Accessories and functionalities:</TitleH3>
+      <TitleH3>{t("carDetails.accessoriesTitle")}</TitleH3>
 
       <DetailsUl>
         {accessories.map((item, index) => (
@@ -71,11 +86,12 @@ export default function CarDetails({ car }) {
         ))}
       </DetailsUl>
 
-      <TitleH3>Rental Conditions: </TitleH3>
+      <TitleH3>{t("carDetails.rentalConditionsTitle")}</TitleH3>
 
       <ConditionsUl>
         <ConditionsLi>
-          Minimum age: <ConditionsSpan>{requiredAge}</ConditionsSpan>
+          {t("carDetails.minimumAge")}
+          <ConditionsSpan>{requiredAge}</ConditionsSpan>
         </ConditionsLi>
 
         {restConditions.map((item, index) => (
@@ -83,15 +99,17 @@ export default function CarDetails({ car }) {
         ))}
 
         <ConditionsLi>
-          Mileage: <ConditionsSpan>{mileage.toLocaleString("en-US")}</ConditionsSpan>
+          {t("carDetails.mileage")}
+          <ConditionsSpan>{mileage.toLocaleString("en-US")}</ConditionsSpan>
         </ConditionsLi>
 
         <ConditionsLi>
-          Price: <ConditionsSpan>{rentalPrice}</ConditionsSpan>
+          {t("carDetails.price")}
+          <ConditionsSpan>{rentalPrice}</ConditionsSpan>
         </ConditionsLi>
       </ConditionsUl>
 
-      <ButtonA href="tel:+380730000000">Rental car</ButtonA>
+      <ButtonA href="tel:+380730000000">{t("carDetails.rentalCar")}</ButtonA>
     </ContainerDiv>
   );
 }

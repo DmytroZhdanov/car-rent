@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 
 import { ContainerDiv, NavBarLink } from "./NavBar.styled";
@@ -5,6 +6,8 @@ import { ContainerDiv, NavBarLink } from "./NavBar.styled";
 import ROUTER from "utils/router";
 
 export default function NavBar({ onClose }) {
+  const { t } = useTranslation();
+
   const handleClick = () => {
     if (!onClose) return;
 
@@ -14,11 +17,11 @@ export default function NavBar({ onClose }) {
   return (
     <ContainerDiv>
       <NavBarLink to={ROUTER.CATALOG} onClick={handleClick}>
-        Catalog
+        {t("navBar.catalog")}
       </NavBarLink>
 
       <NavBarLink to={ROUTER.FAVORITE} onClick={handleClick}>
-        Favorite
+        {t("navBar.favorite")}
       </NavBarLink>
     </ContainerDiv>
   );
