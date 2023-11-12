@@ -29,7 +29,7 @@ export const BackgroundDiv = styled.div(
       height: "calc(100vh - 63px)",
 
       backgroundColor: `${theme.color.blue}`,
-      background: `linear-gradient(0deg, rgba(52, 12, 255, 0.3) 0%, rgba(52, 12, 255, 0.3) 100%),
+      background: `linear-gradient(0deg, rgba(52, 12, 255, 0.2) 0%, rgba(52, 12, 255, 0.2) 100%),
                   image-set(
                     url(${mainBackground.backgroundWebp}) type("image/webp") 1x,
                     url(${mainBackground.backgroundJpg}) type("image/jpeg") 1x,
@@ -37,7 +37,7 @@ export const BackgroundDiv = styled.div(
                     url(${mainBackground.background2xJpg}) type("image/jpeg") 2x,
                     url(${mainBackground.background3xWebp}) type("image/webp") 3x,
                     url(${mainBackground.background3xJpg}) type("image/jpeg") 3x
-                  ) 
+                  )
                   center center no-repeat`,
       backgroundSize: "cover",
     }
