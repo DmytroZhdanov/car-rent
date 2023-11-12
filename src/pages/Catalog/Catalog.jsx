@@ -24,12 +24,36 @@ export function Catalog() {
 
   useEffect(() => {
     const fetch = async () => {
+      // As mockapi.io doesn't provide filtering by range (more than/less than)
+      // here is a solution to filter adverts by user's queries.
+      //
+      // Another solution is to create a hook in api.js file (to simulate backend) which will return
+      // filtered array of adverts matching all user's filter's queries and include pagination.
+      // But it's require to fetch all adverts and will increase page loading time.
+      /**
+       * Filter adverts by price and mileage ranges
+       *
+       * @param {Array} cars Array of Objects with advert's information
+       * @returns Array of Objects with advert's information filtered by price and mileage ranges
+       */
+      const filterCars = cars => {
+        return cars.filter(
+          car =>
+            (filter.price
+              ? +car.rentalPrice.slice(1, car.rentalPrice.length) <
+                +filter.price.slice(1, filter.price.length)
+              : true) &&
+            (filter.mileage.from ? car.mileage > +filter.mileage.from : true) &&
+            (filter.mileage.to ? car.mileage < +filter.mileage.to : true)
+        );
+      };
+
       const data = await fetchCars({ page, make: filter.make }).unwrap();
 
       if (page === 1) {
-        setCars(data);
+        setCars(filterCars(data));
       } else {
-        setCars(cars => [...cars, ...data]);
+        setCars(cars => [...cars, ...filterCars(data)]);
       }
 
       // As mockapi.io doesn't returns total quantity of stored adverts here is a solution
@@ -43,10 +67,14 @@ export function Catalog() {
       } else {
         setIsFinalPage(false);
       }
+
+      if (data.length > 0 && filterCars(data).length === 0) {
+        setPage(page => page + 1);
+      }
     };
 
     fetch();
-  }, [page, filter.make, fetchCars]);
+  }, [page, filter, fetchCars]);
 
   useEffect(() => {
     let id;
@@ -61,39 +89,15 @@ export function Catalog() {
     return () => clearTimeout(id);
   }, [isError]);
 
-  // As mockapi.io doesn't provide filtering by range (more than/less than)
-  // here is a solution to filter adverts by user's queries.
-  //
-  // Another solution is to create a hook in api.js file (to simulate backend) which will return
-  // filtered array of adverts matching all user's filter's queries and include pagination.
-  // But it's require to fetch all adverts and will increase page loading time.
-  /**
-   * Filter adverts by price and mileage ranges
-   *
-   * @param {Array} cars Array of Objects with advert's information
-   * @returns Array of Objects with advert's information filtered by price and mileage ranges
-   */
-  const filterCars = cars => {
-    return cars.filter(
-      car =>
-        (filter.price
-          ? +car.rentalPrice.slice(1, car.rentalPrice.length) <
-            +filter.price.slice(1, filter.price.length)
-          : true) &&
-        (filter.mileage.from ? car.mileage > +filter.mileage.from : true) &&
-        (filter.mileage.to ? car.mileage < +filter.mileage.to : true)
-    );
-  };
-
   return (
     <>
       <PageTitle />
 
       <Filter setFilter={setFilter} setPage={setPage} />
 
-      <CarList cars={filterCars(cars)} />
+      <CarList cars={cars} />
 
-      {(!isFinalPage || (!isFinalPage && filterCars(cars).length > 0)) && (
+      {(!isFinalPage || (!isFinalPage && cars.length > 0)) && (
         <Button onClick={() => setPage(page + 1)}>Load more</Button>
       )}
 
