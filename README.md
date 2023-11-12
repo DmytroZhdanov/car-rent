@@ -14,6 +14,10 @@ contact the agent to rent a car.
 
 Implemented responsiveness and mobile menu for better UI.
 
+Implemented localization with possibility to choose language between English and Ukrainian.  
+On first loading language detector tries to detect the browser language and automatically use that language if such translation provided.  
+Selected language is saved when you reload the page for convenient usage.
+
 ## Installation
 
 To open the project on localhost
