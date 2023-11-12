@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 export const ContainerDiv = styled.div`
   height: 63px;
   padding: 12px 0;
+
   background-color: ${({ theme }) => theme.color.blue};
   color: ${({ theme }) => theme.color.greyBackgroundSelect};
   border-bottom: 1px solid ${({ theme }) => theme.color.greyBackgroundSelect};
@@ -56,8 +57,10 @@ export const BackdropDiv = styled.div`
   z-index: 100;
   top: 0;
   left: 0;
+
   height: 100%;
   width: 50%;
+
   background-color: rgba(0, 0, 0, 0.5);
 
   &.backdrop-enter {
@@ -71,6 +74,7 @@ export const BackdropDiv = styled.div`
     transition: opacity 300ms, transform 300ms;
   }
 
+  /* For unmounting */
   &.backdrop-exit {
     opacity: 1;
   }

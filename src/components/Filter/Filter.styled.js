@@ -10,6 +10,7 @@ export const Form = styled.form`
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
     flex-direction: row;
+
     margin-top: 100px;
   }
 
@@ -24,6 +25,7 @@ export const Form = styled.form`
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.desktop}) {
     justify-content: center;
+
     margin-top: 60px;
   }
 `;
@@ -56,10 +58,11 @@ export const InputWrapperDiv = styled.div`
   line-height: ${20 / 18};
 
   &::before {
-    display: block;
     position: absolute;
     top: 14px;
     left: 24px;
+
+    display: block;
   }
 
   & input:focus-visible {

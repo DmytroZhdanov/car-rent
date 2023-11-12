@@ -18,11 +18,23 @@ import {
 
 import makers from "utils/makers";
 
+// As mockapi.io doesn't provide an api to return array of all car brands mentioned in adverts
+// here is a solution to keep this array as a static information.
+//
+// Another solution is to create a hook in api.js file (to simulate backend) which will return
+// such array. But it's require to fetch all adverts and will increase page loading time.
 const brandOptions = [
   { value: null, label: "- - Select a car brand", selected: true },
   ...makers.map(maker => ({ value: maker, label: maker })),
 ];
 
+/**
+ * Generate Array of price options for Select component
+ *
+ * @param {Number} min Minimum price amount as an option to choose
+ * @param {Number} max Maximum price amount as an option to choose
+ * @returns Array of option Objects for Select component
+ */
 const definePricesOptions = (min, max) => {
   let pricesOptions = [{ value: null, label: "- -" }];
 
@@ -39,6 +51,11 @@ export default function Filter({ setFilter, setPage }) {
   const [inputFrom, setInputFrom] = useState("");
   const [inputTo, setInputTo] = useState("");
 
+  /**
+   * Set page to 1 and set filter data for fetching appropriate adverts
+   *
+   * @param {Event} e Event object
+   */
   const handleFilterSubmit = e => {
     e.preventDefault();
 
@@ -59,6 +76,7 @@ export default function Filter({ setFilter, setPage }) {
     <Form onSubmit={handleFilterSubmit}>
       <WrapperDiv>
         <Label htmlFor="carBrand">Car brand</Label>
+
         <Select
           id="carBrand"
           options={brandOptions}
@@ -71,6 +89,7 @@ export default function Filter({ setFilter, setPage }) {
 
       <WrapperDiv>
         <Label htmlFor="price">Price per 1 hour</Label>
+
         <Select
           id="price"
           options={definePricesOptions(30, 500)}
@@ -118,13 +137,17 @@ Filter.propTypes = {
 const styles = {
   control: (baseStyles, state) => ({
     ...baseStyles,
+
     display: "flex",
     flexWrap: "nowrap",
+
     width: state.selectProps.id === "carBrand" ? "242px" : "136px",
     height: "48px",
     padding: "14px 18px",
+
     border: "none",
     borderRadius: "14px",
+
     backgroundColor: "#F7F7FB",
   }),
   indicatorSeparator: () => ({ display: "none" }),
@@ -140,6 +163,7 @@ const styles = {
   }),
   valueContainer: baseStyles => ({
     ...baseStyles,
+
     width: "100%",
     padding: "0",
   }),
@@ -148,22 +172,26 @@ const styles = {
   input: () => ({ display: "none" }),
   menu: baseStyles => ({
     ...baseStyles,
+
     zIndex: "3",
+
     marginTop: "4px",
     padding: "14px 8px 14px 18px",
+
     borderRadius: "14px",
     border: "1px solid rgba(18, 20, 23, 0.05)",
   }),
   menuList: (_, state) => ({
-    marginTop: 0,
     height: state.selectProps.id === "carBrand" ? "272px" : "188px",
+
+    marginTop: 0,
     overflowY: "auto",
   }),
   option: () => ({
     color: "rgba(18, 20, 23, 0.20)",
     lineHeight: `${20 / 16}`,
-    cursor: "pointer",
     padding: "4px 0",
+    cursor: "pointer",
 
     "&:hover": {
       color: "#121417",

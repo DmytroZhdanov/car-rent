@@ -13,8 +13,10 @@ export const ListUl = styled.ul`
   margin-bottom: 60px;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
-    width: 580px;
     justify-content: flex-start;
+
+    width: 580px;
+
     margin: 0 auto 80px;
   }
 

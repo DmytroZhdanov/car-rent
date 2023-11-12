@@ -3,11 +3,17 @@ import PropTypes from "prop-types";
 
 import CarCard from "components/CarCard/CarCard";
 import { CatalogLink, DefaultMainTextP, DefaultTextWrapperDiv, ListUl } from "./CarList.styled";
+
 import ROUTER from "utils/router";
 
 export default function CarList({ cars }) {
   const { pathname } = useResolvedPath();
 
+  /**
+   * Based on current page generate jsx elements to render instead of empty list of adverts
+   *
+   * @returns JSX elements with text to render
+   */
   const generateDefaultText = () => {
     switch (pathname) {
       case `/${ROUTER.CATALOG}`:
@@ -40,11 +46,9 @@ export default function CarList({ cars }) {
 
   return (
     <>
-      {cars.length === 0 && (
+      {cars.length === 0 ? (
         <DefaultTextWrapperDiv pathname={pathname}>{generateDefaultText()}</DefaultTextWrapperDiv>
-      )}
-
-      {cars.length > 0 && (
+      ) : (
         <ListUl>
           {cars.map(car => (
             <CarCard key={car.id} car={car} />

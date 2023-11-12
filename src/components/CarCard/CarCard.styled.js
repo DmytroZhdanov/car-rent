@@ -18,9 +18,12 @@ export const ImageDiv = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    border-radius: 14px;
+
     width: 274px;
     height: 268px;
+
+    border-radius: 14px;
+
     background-image: ${({ theme }) => theme.gradient};
   }
 `;
@@ -102,7 +105,7 @@ export const PriceP = styled.p`
 export const DetailsUl = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  column-gap: 12px;
+  column-gap: 7px;
   row-gap: 4px;
 
   height: 40px;
@@ -117,8 +120,12 @@ export const DetailsUl = styled.ul`
   line-height: ${18 / 12};
   margin-bottom: 28px;
 
-  list-style-type: "|  ";
+  list-style-type: "|";
   list-style-position: outside;
+
+  & li {
+    padding-left: 5px;
+  }
 `;
 
 export const Button = styled.button`

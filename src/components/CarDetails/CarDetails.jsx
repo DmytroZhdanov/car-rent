@@ -75,7 +75,7 @@ export default function CarDetails({ car }) {
 
       <ConditionsUl>
         <ConditionsLi>
-          Minimum age : <ConditionsSpan>{requiredAge}</ConditionsSpan>
+          Minimum age: <ConditionsSpan>{requiredAge}</ConditionsSpan>
         </ConditionsLi>
 
         {restConditions.map((item, index) => (

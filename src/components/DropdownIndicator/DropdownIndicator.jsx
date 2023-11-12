@@ -1,15 +1,14 @@
 import { components } from "react-select";
 
-import sprite from "assets/sprite/sprite.svg";
 import { Icon } from "./DropdownIndicator.styled";
+
+import sprite from "assets/sprite/sprite.svg";
 
 const DropdownIndicator = props => (
   <components.DropdownIndicator {...props}>
-    {
-      <Icon>
-        <use href={`${sprite}#chevron`}></use>
-      </Icon>
-    }
+    <Icon>
+      <use href={`${sprite}#chevron`}></use>
+    </Icon>
   </components.DropdownIndicator>
 );
 

@@ -1,11 +1,13 @@
-import sprite from "assets/sprite/sprite.svg";
-import MobileMenu from "components/MobileMenu/MobileMenu";
-import NavBar from "components/NavBar/NavBar";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
-import ROUTER from "utils/router";
+
+import MobileMenu from "components/MobileMenu/MobileMenu";
+import NavBar from "components/NavBar/NavBar";
 import { BackdropDiv, ContainerDiv, LogoLink, WrapperDiv } from "./Header.styled";
+
+import sprite from "assets/sprite/sprite.svg";
+import ROUTER from "utils/router";
 
 export default function Header() {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1440);

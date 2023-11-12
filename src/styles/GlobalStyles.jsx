@@ -1,12 +1,13 @@
 import { css } from "@emotion/react";
 import emotionNormalize from "emotion-normalize";
-import { theme } from "./theme";
 
 import ManropeRegular from "assets/fonts/Manrope-Regular.ttf";
 import ManropeMedium from "assets/fonts/Manrope-Medium.ttf";
 import ManropeSemiBold from "assets/fonts/Manrope-SemiBold.ttf";
 import MontserratRegular from "assets/fonts/Montserrat-Regular.ttf";
 import MontserratSemiBold from "assets/fonts/Montserrat-SemiBold.ttf";
+
+import { theme } from "./theme";
 
 export const GlobalStyles = css`
   ${emotionNormalize}
