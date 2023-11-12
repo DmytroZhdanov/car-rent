@@ -18,8 +18,9 @@ export const ContainerDiv = styled.div`
 `;
 
 export const Image = styled.img`
+  display: block;
   width: 240px;
-  aspect-ratio: ${461 / 248};
+  height: 128px;
   border-radius: 14px;
   margin-bottom: 14px;
 
@@ -39,10 +40,12 @@ export const Image = styled.img`
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.mobile}) {
     width: 271px;
+    height: 146px;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
     width: 461px;
+    height: 248px;
 
     background-image: image-set(
       url(${noPhotoBackground.modalWebp}) type("image/webp") 1x,
