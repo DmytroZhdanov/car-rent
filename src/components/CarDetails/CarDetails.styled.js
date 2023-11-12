@@ -26,6 +26,8 @@ export const Image = styled.img`
 
   font-size: 0;
 
+  object-fit: cover;
+
   background-image: image-set(
     url(${noPhotoBackground.modalMobWebp}) type("image/webp") 1x,
     url(${noPhotoBackground.modalMobJpg}) type("image/jpeg") 1x,
