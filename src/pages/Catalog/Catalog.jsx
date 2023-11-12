@@ -20,7 +20,7 @@ export function Catalog() {
     mileage: { from: "", to: "" },
   });
 
-  const [fetchCars, { isLoading, isError, error }] = useLazyGetAllCarsQuery();
+  const [fetchCars, { isFetching, isError, error }] = useLazyGetAllCarsQuery();
 
   useEffect(() => {
     const fetch = async () => {
@@ -93,11 +93,11 @@ export function Catalog() {
 
       <CarList cars={filterCars(cars)} />
 
-      {(!isFinalPage || filterCars(cars).length === 0) && (
+      {(!isFinalPage || (!isFinalPage && filterCars(cars).length > 0)) && (
         <Button onClick={() => setPage(page + 1)}>Load more</Button>
       )}
 
-      {isLoading && <Loader />}
+      {isFetching && <Loader />}
 
       <BasicModalWindow isShown={showError} type={"error"} onClose={() => setShowError(false)}>
         <ErrorMessageP>Error: {error?.data}</ErrorMessageP>
