@@ -93,8 +93,8 @@ export default function Filter({ setFilter, setPage }) {
 
         <Select
           inputId="price"
-          options={definePricesOptions(30, 500)}
-          defaultValue={definePricesOptions(30, 500)[0]}
+          options={definePricesOptions(30, 800)}
+          defaultValue={definePricesOptions(30, 800)[0]}
           styles={styles}
           onChange={option => setInputPrice(option.value)}
           components={{ Control: PriceControl, DropdownIndicator }}
