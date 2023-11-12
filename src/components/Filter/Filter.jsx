@@ -8,11 +8,12 @@ import {
   Button,
   Form,
   FromInput,
-  FromInputDiv,
+  InputDiv,
   InputWrapperDiv,
   Label,
+  Legend,
+  MileageLabel,
   ToInput,
-  ToInputDiv,
   WrapperDiv,
 } from "./Filter.styled";
 
@@ -78,7 +79,7 @@ export default function Filter({ setFilter, setPage }) {
         <Label htmlFor="carBrand">Car brand</Label>
 
         <Select
-          id="carBrand"
+          inputId="carBrand"
           options={brandOptions}
           defaultValue={brandOptions[0]}
           styles={styles}
@@ -91,7 +92,7 @@ export default function Filter({ setFilter, setPage }) {
         <Label htmlFor="price">Price per 1 hour</Label>
 
         <Select
-          id="price"
+          inputId="price"
           options={definePricesOptions(30, 500)}
           defaultValue={definePricesOptions(30, 500)[0]}
           styles={styles}
@@ -100,29 +101,33 @@ export default function Filter({ setFilter, setPage }) {
         />
       </WrapperDiv>
 
-      <WrapperDiv>
-        <Label htmlFor="from to">Car milage, km</Label>
+      <fieldset>
+        <Legend htmlFor="mileage">Car milage, km</Legend>
 
         <InputWrapperDiv>
-          <FromInputDiv>
+          <InputDiv>
+            <MileageLabel htmlFor="from">From</MileageLabel>
+
             <FromInput
               type="number"
               id="from"
               value={inputFrom}
               onChange={({ target }) => setInputFrom(target.value)}
             />
-          </FromInputDiv>
+          </InputDiv>
 
-          <ToInputDiv>
+          <InputDiv>
+            <MileageLabel htmlFor="to">To</MileageLabel>
+
             <ToInput
               type="number"
               id="to"
               value={inputTo}
               onChange={({ target }) => setInputTo(target.value)}
             />
-          </ToInputDiv>
+          </InputDiv>
         </InputWrapperDiv>
-      </WrapperDiv>
+      </fieldset>
 
       <Button>Search</Button>
     </Form>
@@ -141,7 +146,7 @@ const styles = {
     display: "flex",
     flexWrap: "nowrap",
 
-    width: state.selectProps.id === "carBrand" ? "242px" : "136px",
+    width: state.selectProps.inputId === "carBrand" ? "242px" : "136px",
     height: "48px",
     padding: "14px 18px",
 

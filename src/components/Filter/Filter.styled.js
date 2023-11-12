@@ -49,25 +49,31 @@ export const Label = styled.label`
   margin-bottom: 8px;
 `;
 
+export const Legend = styled.legend`
+  display: block;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: ${18 / 14};
+  color: ${({ theme }) => theme.color.greyFilterTitle};
+
+  margin-bottom: 8px;
+`;
+
 export const InputWrapperDiv = styled.div`
-  position: relative;
   display: flex;
 
   font-weight: 500;
   font-size: 18px;
   line-height: ${20 / 18};
 
-  &::before {
-    position: absolute;
-    top: 14px;
-    left: 24px;
-
-    display: block;
-  }
-
   & input:focus-visible {
     outline: 2px solid ${({ theme }) => theme.color.blue};
   }
+`;
+
+export const InputDiv = styled.div`
+  position: relative;
 `;
 
 const Input = styled.input`
@@ -89,22 +95,16 @@ const Input = styled.input`
   }
 `;
 
-export const FromInputDiv = styled(InputWrapperDiv)`
-  &::before {
-    content: "From";
-  }
+export const MileageLabel = styled.label`
+  position: absolute;
+  top: 14px;
+  left: 24px;
 `;
 
 export const FromInput = styled(Input)`
   border-radius: 14px 0 0 14px;
   border-right: 1px solid ${({ theme }) => theme.color.greyOption};
   padding-left: 72px;
-`;
-
-export const ToInputDiv = styled(InputWrapperDiv)`
-  &::before {
-    content: "To";
-  }
 `;
 
 export const ToInput = styled(Input)`
