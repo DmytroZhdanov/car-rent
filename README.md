@@ -1,6 +1,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c87712ec-832c-4970-a53f-0fd1690450d3/deploy-status)](https://app.netlify.com/sites/car-rent-zhdanov/deploys)
 
-# Car Rent
+# Car Rent 🚙
 
 Website where you can find a car to rent.
 
