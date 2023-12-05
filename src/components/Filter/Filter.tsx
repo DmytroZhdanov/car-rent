@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FC, FormEvent, ReactElement, useState } from "react";
 import Select, { StylesConfig } from "react-select";
 import { useTranslation } from "react-i18next";
 
@@ -56,7 +56,7 @@ const definePricesOptions = (min: number, max: number): SelectOption[] => {
   return pricesOptions;
 };
 
-export default function Filter({ setFilter, setPage }: IFilterProps) {
+const Filter: FC<IFilterProps> = ({ setFilter, setPage }): ReactElement => {
   const { t } = useTranslation(["filter"]);
 
   const [inputMake, setInputMake] = useState<string | null>(null);
@@ -160,7 +160,7 @@ export default function Filter({ setFilter, setPage }: IFilterProps) {
       <Button>{t("search")}</Button>
     </Form>
   );
-}
+};
 
 const styles: StylesConfig = {
   control: (baseStyles, state) => ({
@@ -226,3 +226,5 @@ const styles: StylesConfig = {
     },
   }),
 };
+
+export default Filter;

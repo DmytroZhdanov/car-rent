@@ -1,7 +1,9 @@
+import { FC, ReactElement } from "react";
 import { ThreeDots } from "react-loader-spinner";
+
 import { Backdrop, Container } from "./Loader.styled";
 
-const Loader = () => {
+const Loader: FC = (): ReactElement => {
   return (
     <Backdrop>
       <Container>

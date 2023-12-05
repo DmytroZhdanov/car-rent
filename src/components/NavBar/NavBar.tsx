@@ -1,3 +1,4 @@
+import { FC, ReactElement } from "react";
 import { useTranslation } from "react-i18next";
 
 import { ContainerDiv, NavBarLink } from "./NavBar.styled";
@@ -8,7 +9,7 @@ interface INavBarProps {
   onClose?: () => void;
 }
 
-export default function NavBar({ onClose }: INavBarProps) {
+const NavBar: FC<INavBarProps> = ({ onClose }): ReactElement => {
   const { t } = useTranslation(["navBar"]);
 
   const handleClick = () => {
@@ -28,4 +29,6 @@ export default function NavBar({ onClose }: INavBarProps) {
       </NavBarLink>
     </ContainerDiv>
   );
-}
+};
+
+export default NavBar;

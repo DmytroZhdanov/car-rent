@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { FC, ReactElement, useRef } from "react";
 import { createPortal } from "react-dom";
 import { CSSTransition } from "react-transition-group";
 
@@ -12,7 +12,7 @@ interface IMobMenuProps {
   isOpened: boolean;
 }
 
-export default function MobileMenu({ onClose, isOpened }: IMobMenuProps) {
+const MobileMenu: FC<IMobMenuProps> = ({ onClose, isOpened }): ReactElement => {
   const mobileMenuRoot = document.querySelector("#mobile-menu-root") as HTMLElement;
   const mobileMenuRef = useRef(null);
 
@@ -36,4 +36,6 @@ export default function MobileMenu({ onClose, isOpened }: IMobMenuProps) {
     </CSSTransition>,
     mobileMenuRoot
   );
-}
+};
+
+export default MobileMenu;

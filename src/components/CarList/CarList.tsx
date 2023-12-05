@@ -1,3 +1,4 @@
+import { FC, ReactElement } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -8,7 +9,7 @@ import ROUTER from "utils/router";
 
 import { ICar } from "redux/favorite/favoriteSlice";
 
-export default function CarList({ cars }: { cars: ICar[] }) {
+const CarList: FC<{ cars: ICar[] }> = ({ cars }): ReactElement => {
   const { t } = useTranslation(["carList"]);
 
   const { pathname } = useLocation();
@@ -60,4 +61,6 @@ export default function CarList({ cars }: { cars: ICar[] }) {
       )}
     </>
   );
-}
+};
+
+export default CarList;

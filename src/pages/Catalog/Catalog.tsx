@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { FC, ReactElement, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import CarList from "components/CarList/CarList";
@@ -19,7 +19,7 @@ interface IFilter {
   mileage: { from: string; to: string };
 }
 
-export function Catalog() {
+const Catalog: FC = (): ReactElement => {
   const { t, i18n } = useTranslation(["catalog"]);
   const language = i18n.resolvedLanguage;
 
@@ -131,4 +131,6 @@ export function Catalog() {
       </BasicModalWindow>
     </>
   );
-}
+};
+
+export { Catalog };

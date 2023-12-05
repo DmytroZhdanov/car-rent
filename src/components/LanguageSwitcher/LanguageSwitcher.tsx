@@ -1,3 +1,4 @@
+import { FC, ReactElement } from "react";
 import { useTranslation } from "react-i18next";
 
 import { SwitchButton, SwitcherDiv } from "./LanguageSwitcher.styled";
@@ -15,7 +16,7 @@ const languages: Languages = {
   uk: { nativeName: "🇺🇦" },
 };
 
-export default function LanguageSwitcher() {
+const LanguageSwitcher: FC = (): ReactElement => {
   const { i18n } = useTranslation();
 
   return (
@@ -33,4 +34,6 @@ export default function LanguageSwitcher() {
       ))}
     </SwitcherDiv>
   );
-}
+};
+
+export default LanguageSwitcher;

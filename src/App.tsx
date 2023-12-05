@@ -2,6 +2,7 @@ import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom"
 
 import Main from "pages/Main/Main";
 import ROUTER from "utils/router";
+import { FC, ReactElement } from "react";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,8 @@ const router = createBrowserRouter([
   },
 ]);
 
-export default function App() {
+const App: FC = (): ReactElement => {
   return <RouterProvider router={router} />;
-}
+};
+
+export default App;

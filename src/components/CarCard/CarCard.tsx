@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { FC, ReactElement, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
@@ -19,12 +19,10 @@ import {
 import sprite from "assets/sprite/sprite.svg";
 import { selectFavorites } from "../../redux/favorite/selectors";
 import { addToFavorite, removeFromFavorite } from "../../redux/favorite/favoriteSlice";
-// import { selectFavorites } from "src/redux/favorite/selectors";
-// import { addToFavorite, removeFromFavorite } from "src/redux/favorite/favoriteSlice";
 
 import { ICar } from "redux/favorite/favoriteSlice";
 
-export default function CarCard({ car }: { car: ICar }) {
+const CarCard: FC<{ car: ICar }> = ({ car }): ReactElement => {
   const {
     img,
     make,
@@ -100,4 +98,6 @@ export default function CarCard({ car }: { car: ICar }) {
       </BasicModalWindow>
     </ItemLi>
   );
-}
+};
+
+export default CarCard;

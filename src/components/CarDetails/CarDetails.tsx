@@ -1,3 +1,4 @@
+import { FC, ReactElement } from "react";
 import { useTranslation } from "react-i18next";
 
 import {
@@ -16,7 +17,7 @@ import {
 
 import { ICar } from "redux/favorite/favoriteSlice";
 
-export default function CarDetails({ car }: { car: ICar }) {
+const CarDetails: FC<{ car: ICar }> = ({ car }): ReactElement => {
   const {
     img,
     make,
@@ -113,4 +114,6 @@ export default function CarDetails({ car }: { car: ICar }) {
       <ButtonA href="tel:+380730000000">{t("rentalCar")}</ButtonA>
     </ContainerDiv>
   );
-}
+};
+
+export default CarDetails;

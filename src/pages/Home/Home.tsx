@@ -1,10 +1,11 @@
+import { FC, ReactElement } from "react";
 import { useTranslation } from "react-i18next";
 
 import { ActionP, ContainerDiv, DescriptionP, StartLink, TitleH1 } from "./Home.styled";
 
 import ROUTER from "utils/router";
 
-export function Home() {
+const Home: FC = (): ReactElement => {
   const { t } = useTranslation(["home"]);
 
   return (
@@ -20,4 +21,6 @@ export function Home() {
       </ActionP>
     </ContainerDiv>
   );
-}
+};
+
+export { Home };

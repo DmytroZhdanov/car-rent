@@ -1,4 +1,4 @@
-import { MouseEvent, useEffect, useRef, useState } from "react";
+import { FC, MouseEvent, ReactElement, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 
@@ -10,7 +10,7 @@ import { BackdropDiv, ContainerDiv, LogoLink, WrapperDiv } from "./Header.styled
 import sprite from "assets/sprite/sprite.svg";
 import ROUTER from "utils/router";
 
-export default function Header() {
+const Header: FC = (): ReactElement => {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1440);
   const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
 
@@ -88,4 +88,6 @@ export default function Header() {
       </WrapperDiv>
     </ContainerDiv>
   );
-}
+};
+
+export default Header;

@@ -1,4 +1,4 @@
-import { Suspense, useRef, useState } from "react";
+import { FC, ReactElement, Suspense, useRef, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
 import { CSSTransition } from "react-transition-group";
@@ -9,7 +9,7 @@ import { BackgroundDiv, ContainerDiv, UpButton } from "./Main.styled";
 
 import sprite from "assets/sprite/sprite.svg";
 
-export default function Main() {
+const Main: FC = (): ReactElement => {
   const { pathname } = useLocation();
   const [showUpButton, setShowUpButton] = useState(false);
   const upButtonRef = useRef(null);
@@ -50,4 +50,6 @@ export default function Main() {
       </CSSTransition>
     </>
   );
-}
+};
+
+export default Main;
