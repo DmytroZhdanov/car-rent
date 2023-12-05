@@ -1,6 +1,6 @@
+import { FC, ReactElement } from "react";
 import { components, ControlProps } from "react-select";
 import { useTranslation } from "react-i18next";
-import { FC, ReactElement } from "react";
 
 const PriceControl: FC<ControlProps> = ({ children, ...props }): ReactElement => {
   const { t } = useTranslation(["priceControl"]);

@@ -1,10 +1,10 @@
+import { FC, ReactElement } from "react";
 import { useLocation } from "react-router-dom";
 
 import { TitleH1, WrapperDiv } from "./PageTitle.styled";
 
 import sprite from "assets/sprite/sprite.svg";
 import { useTranslation } from "react-i18next";
-import { FC, ReactElement } from "react";
 
 const PageTitle: FC = (): ReactElement => {
   const { t } = useTranslation(["pageTitle"]);
