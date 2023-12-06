@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import { ActionP, ContainerDiv, DescriptionP, StartLink, TitleH1 } from "pages/Home";
 
-import ROUTER from "utils/router";
+import { ROUTER } from "App";
 
 const Home: FC = (): ReactElement => {
   const { t } = useTranslation(["home"]);

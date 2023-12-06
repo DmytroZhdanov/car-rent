@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 
-import ROUTER from "utils/router";
+import { ROUTER } from "App";
 import * as listBackground from "utils/listBackground.js";
 import { IGeneralProps } from "pages/Main/Main.styled";
 

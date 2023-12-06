@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-import ROUTER from "utils/router";
+import { ROUTER } from "App";
 import * as mainBackground from "utils/mainBackground.js";
 import { ITheme } from "styles";
 

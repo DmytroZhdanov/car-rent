@@ -5,8 +5,8 @@ import { useTranslation } from "react-i18next";
 import CarCard from "components/CarCard";
 import { CatalogLink, DefaultMainTextP, DefaultTextWrapperDiv, ListUl } from "components/CarList";
 
-import ROUTER from "utils/router";
 import { TCar } from "shared.types";
+import { ROUTER } from "App";
 
 const CarList: FC<{ cars: TCar[] }> = ({ cars }): ReactElement => {
   const { t } = useTranslation(["carList"]);

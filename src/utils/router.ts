@@ -1,13 +1,13 @@
-interface IRouter {
-  MAIN: string;
-  CATALOG: string;
-  FAVORITE: string;
-}
+// interface IRouter {
+//   MAIN: string;
+//   CATALOG: string;
+//   FAVORITE: string;
+// }
 
-const ROUTER: IRouter = {
-  MAIN: "/",
-  CATALOG: "catalog",
-  FAVORITE: "favorite",
-};
+// const ROUTER: IRouter = {
+//   MAIN: "/",
+//   CATALOG: "catalog",
+//   FAVORITE: "favorite",
+// };
 
-export default ROUTER;
+// export default ROUTER;

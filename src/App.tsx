@@ -3,7 +3,11 @@ import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom"
 
 import Main from "pages/Main";
 
-import ROUTER from "utils/router";
+export const enum ROUTER {
+  MAIN = "/",
+  CATALOG = "catalog",
+  FAVORITE = "favorite",
+}
 
 const router = createBrowserRouter([
   {

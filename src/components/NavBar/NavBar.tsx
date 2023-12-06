@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import { ContainerDiv, NavBarLink } from "components/NavBar";
 
-import ROUTER from "utils/router";
+import { ROUTER } from "App";
 
 type TNavBarProps = {
   onClose?: () => void;

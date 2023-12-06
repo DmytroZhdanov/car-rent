@@ -8,7 +8,8 @@ import NavBar from "components/NavBar";
 import { BackdropDiv, ContainerDiv, LogoLink, WrapperDiv } from "components/Header";
 
 import sprite from "assets/sprite";
-import ROUTER from "utils/router";
+
+import { ROUTER } from "App";
 
 const Header: FC = (): ReactElement => {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1440);
