@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 
-import { IGeneralProps } from "pages/Main/Main.styled";
+import { TStylesProps } from "shared.types";
 
-export const ContainerDiv = styled.div<IGeneralProps>`
+export const ContainerDiv = styled.div<TStylesProps>`
   padding-top: 60px;
 
   text-align: center;
@@ -18,7 +18,7 @@ export const TitleH1 = styled.h1`
   font-size: 48px;
 `;
 
-export const DescriptionP = styled.p<IGeneralProps>`
+export const DescriptionP = styled.p<TStylesProps>`
   margin-bottom: 80px;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
@@ -26,13 +26,13 @@ export const DescriptionP = styled.p<IGeneralProps>`
   }
 `;
 
-export const ActionP = styled.p<IGeneralProps>`
+export const ActionP = styled.p<TStylesProps>`
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
     font-size: 20px;
   }
 `;
 
-export const StartLink = styled(Link)<IGeneralProps>`
+export const StartLink = styled(Link)<TStylesProps>`
   display: inline-block;
   padding: 8px 12px;
   border-radius: 12px;

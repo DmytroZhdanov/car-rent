@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
-import { IGeneralProps } from "pages/Main/Main.styled";
 
-export const Icon = styled.svg<IGeneralProps>`
+import { TStylesProps } from "shared.types";
+
+export const Icon = styled.svg<TStylesProps>`
   width: 20px;
   height: 20px;
 

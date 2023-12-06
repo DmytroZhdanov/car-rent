@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
-import { IGeneralProps } from "pages/Main/Main.styled";
 
 import * as noPhotoBackground from "utils/noPhotoBackground.js";
+import { TStylesProps } from "shared.types";
 
-export const ContainerDiv = styled.div<IGeneralProps>`
+export const ContainerDiv = styled.div<TStylesProps>`
   width: calc(100vw - 40px);
   padding: 32px 20px;
 
@@ -18,7 +18,7 @@ export const ContainerDiv = styled.div<IGeneralProps>`
   }
 `;
 
-export const Image = styled.img<IGeneralProps>`
+export const Image = styled.img<TStylesProps>`
   display: block;
   width: 240px;
   height: 128px;
@@ -69,11 +69,11 @@ export const TitleH2 = styled.h2`
   margin-bottom: 8px;
 `;
 
-export const TitleSpan = styled.span<IGeneralProps>`
+export const TitleSpan = styled.span<TStylesProps>`
   color: ${({ theme }) => theme.color.blue};
 `;
 
-export const DetailsUl = styled.ul<IGeneralProps>`
+export const DetailsUl = styled.ul<TStylesProps>`
   display: flex;
   flex-wrap: wrap;
   column-gap: 7px;
@@ -116,7 +116,7 @@ export const TitleH3 = styled.h3`
   margin-bottom: 8px;
 `;
 
-export const ConditionsUl = styled.ul<IGeneralProps>`
+export const ConditionsUl = styled.ul<TStylesProps>`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -131,18 +131,18 @@ export const ConditionsUl = styled.ul<IGeneralProps>`
   margin-bottom: 24px;
 `;
 
-export const ConditionsLi = styled.li<IGeneralProps>`
+export const ConditionsLi = styled.li<TStylesProps>`
   padding: 7px 14px;
   background-color: ${({ theme }) => theme.color.greyBackgroundTag};
   border-radius: 36px;
 `;
 
-export const ConditionsSpan = styled.span<IGeneralProps>`
+export const ConditionsSpan = styled.span<TStylesProps>`
   font-weight: 600;
   color: ${({ theme }) => theme.color.blue};
 `;
 
-export const ButtonA = styled.a<IGeneralProps>`
+export const ButtonA = styled.a<TStylesProps>`
   display: inline-block;
   padding: 12px 50px;
 

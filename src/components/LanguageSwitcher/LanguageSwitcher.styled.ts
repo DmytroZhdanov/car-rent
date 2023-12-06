@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
-import { IGeneralProps } from "pages/Main/Main.styled";
 
-export const SwitcherDiv = styled.div<IGeneralProps>`
+import { TStylesProps } from "shared.types";
+
+export const SwitcherDiv = styled.div<TStylesProps>`
   display: flex;
 
   font-size: 20px;
@@ -17,7 +18,7 @@ export const SwitcherDiv = styled.div<IGeneralProps>`
 `;
 
 export const SwitchButton = styled.button<
-  IGeneralProps & { buttonLanguage: string; currentLanguage: string }
+  TStylesProps & { buttonLanguage: string; currentLanguage: string }
 >`
   border-radius: 8px;
   border: 1px solid

@@ -17,7 +17,7 @@ const SomeName = styled.div`
 `
 */
 
-interface IColor {
+type IColor = {
   white: string;
   greyBackgroundSelect: string;
   greyBackgroundTag: string;
@@ -30,26 +30,26 @@ interface IColor {
   blueHover: string;
   backdropBackground: string;
   imageBackground: string;
-}
+};
 
-interface IBreakpoint {
+type IBreakpoint = {
   firstMobile: string;
   mobile: string;
   tablet: string;
   desktop: string;
-}
+};
 
-interface ITransition {
+type ITransition = {
   main: string;
   modal: string;
-}
+};
 
-export interface ITheme {
+export type ITheme = {
   color: IColor;
   breakpoint: IBreakpoint;
   transition: ITransition;
   gradient: string;
-}
+};
 
 export const theme: ITheme = {
   // Colors

@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
 
-import { IGeneralProps } from "pages/Main/Main.styled";
+import { TStylesProps } from "shared.types";
 
-export const ContainerDiv = styled.div<IGeneralProps>`
+export const ContainerDiv = styled.div<TStylesProps>`
   display: flex;
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.mobile}) and (max-width: 767px) {
@@ -27,7 +27,7 @@ export const ContainerDiv = styled.div<IGeneralProps>`
   }
 `;
 
-export const NavBarLink = styled(NavLink)<IGeneralProps>`
+export const NavBarLink = styled(NavLink)<TStylesProps>`
   padding: 8px 12px;
   font-weight: 500;
   font-size: 20px;

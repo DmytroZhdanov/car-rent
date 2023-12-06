@@ -1,14 +1,14 @@
 import styled from "@emotion/styled";
-import { IGeneralProps } from "pages/Main/Main.styled";
 
 import * as noPhotoBackground from "utils/noPhotoBackground.js";
+import { TStylesProps } from "shared.types";
 
 export const ItemLi = styled.li`
   width: 274px;
   height: 426px;
 `;
 
-export const ImageDiv = styled.div<IGeneralProps>`
+export const ImageDiv = styled.div<TStylesProps>`
   position: relative;
   border-radius: 14px;
   margin-bottom: 14px;
@@ -29,7 +29,7 @@ export const ImageDiv = styled.div<IGeneralProps>`
   }
 `;
 
-export const Img = styled.img<IGeneralProps>`
+export const Img = styled.img<TStylesProps>`
   width: 274px;
   height: 268px;
 
@@ -51,7 +51,7 @@ export const Img = styled.img<IGeneralProps>`
   background-repeat: no-repeat;
 `;
 
-export const FavoriteButton = styled.button<IGeneralProps & { favorite: boolean }>`
+export const FavoriteButton = styled.button<TStylesProps & { favorite: boolean }>`
   position: absolute;
   top: 14px;
   right: 14px;
@@ -97,7 +97,7 @@ export const TitleDiv = styled.div`
   }
 `;
 
-export const TitleSpan = styled.span<IGeneralProps>`
+export const TitleSpan = styled.span<TStylesProps>`
   color: ${({ theme }) => theme.color.blue};
 `;
 
@@ -105,7 +105,7 @@ export const PriceP = styled.p`
   margin-right: 8px;
 `;
 
-export const DetailsUl = styled.ul<IGeneralProps>`
+export const DetailsUl = styled.ul<TStylesProps>`
   display: flex;
   flex-wrap: wrap;
   column-gap: 7px;
@@ -131,7 +131,7 @@ export const DetailsUl = styled.ul<IGeneralProps>`
   }
 `;
 
-export const Button = styled.button<IGeneralProps>`
+export const Button = styled.button<TStylesProps>`
   width: 100%;
   padding: 12px;
   border-radius: 12px;

@@ -1,3 +1,5 @@
+import { ITheme } from "styles";
+
 export type TCar = {
   img: string;
   make: string;
@@ -24,4 +26,8 @@ export type TFilter = {
     from: string;
     to: string;
   };
+};
+
+export type TStylesProps = {
+  theme?: ITheme;
 };

@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 import { ROUTER } from "App";
 import * as listBackground from "utils/listBackground.js";
-import { IGeneralProps } from "pages/Main/Main.styled";
+import { TStylesProps } from "shared.types";
 
-export const ListUl = styled.ul<IGeneralProps>`
+export const ListUl = styled.ul<TStylesProps>`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -31,7 +31,7 @@ export const ListUl = styled.ul<IGeneralProps>`
   }
 `;
 
-export const DefaultTextWrapperDiv = styled.div<IGeneralProps & { pathname: string }>`
+export const DefaultTextWrapperDiv = styled.div<TStylesProps & { pathname: string }>`
   height: ${({ pathname }) => {
     switch (pathname) {
       case `/${ROUTER.CATALOG}`:
@@ -103,13 +103,13 @@ export const DefaultTextWrapperDiv = styled.div<IGeneralProps & { pathname: stri
   }
 `;
 
-export const DefaultMainTextP = styled.p<IGeneralProps>`
+export const DefaultMainTextP = styled.p<TStylesProps>`
   font-weight: 500;
   color: ${({ theme }) => theme.color.blue};
   margin-bottom: 16px;
 `;
 
-export const CatalogLink = styled(Link)<IGeneralProps>`
+export const CatalogLink = styled(Link)<TStylesProps>`
   color: ${({ theme }) => theme.color.blue};
 
   text-decoration: underline;

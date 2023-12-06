@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
-import { IGeneralProps } from "pages/Main/Main.styled";
 import { Link } from "react-router-dom";
 
-export const ContainerDiv = styled.div<IGeneralProps>`
+import { TStylesProps } from "shared.types";
+
+export const ContainerDiv = styled.div<TStylesProps>`
   height: 63px;
   padding: 12px 0;
 
@@ -18,7 +19,7 @@ export const ContainerDiv = styled.div<IGeneralProps>`
   }
 `;
 
-export const WrapperDiv = styled.div<IGeneralProps>`
+export const WrapperDiv = styled.div<TStylesProps>`
   display: flex;
   align-items: center;
 

@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
-import { IGeneralProps } from "pages/Main/Main.styled";
 
-export const WrapperDiv = styled.div<IGeneralProps>`
+import { TStylesProps } from "shared.types";
+
+export const WrapperDiv = styled.div<TStylesProps>`
   display: flex;
   align-items: center;
   margin-top: 60px;
@@ -27,7 +28,7 @@ export const WrapperDiv = styled.div<IGeneralProps>`
   }
 `;
 
-export const TitleH1 = styled.h1<IGeneralProps>`
+export const TitleH1 = styled.h1<TStylesProps>`
   font-weight: 600;
   font-size: 40px;
   color: ${({ theme }) => theme.color.blue};

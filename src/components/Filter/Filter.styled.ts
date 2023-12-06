@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
-import { IGeneralProps } from "pages/Main/Main.styled";
 
-export const Form = styled.form<IGeneralProps>`
+import { TStylesProps } from "shared.types";
+
+export const Form = styled.form<TStylesProps>`
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -39,7 +40,7 @@ export const WrapperDiv = styled.div`
   line-height: ${20 / 18};
 `;
 
-export const Label = styled.label<IGeneralProps>`
+export const Label = styled.label<TStylesProps>`
   display: block;
 
   font-weight: 500;
@@ -50,7 +51,7 @@ export const Label = styled.label<IGeneralProps>`
   margin-bottom: 8px;
 `;
 
-export const Legend = styled.legend<IGeneralProps>`
+export const Legend = styled.legend<TStylesProps>`
   display: block;
 
   font-weight: 500;
@@ -61,7 +62,7 @@ export const Legend = styled.legend<IGeneralProps>`
   margin-bottom: 8px;
 `;
 
-export const InputWrapperDiv = styled.div<IGeneralProps>`
+export const InputWrapperDiv = styled.div<TStylesProps>`
   display: flex;
 
   font-weight: 500;
@@ -77,7 +78,7 @@ export const InputDiv = styled.div`
   position: relative;
 `;
 
-const Input = styled.input<IGeneralProps>`
+const Input = styled.input<TStylesProps>`
   padding: 14px 24px;
 
   border: none;
@@ -113,7 +114,7 @@ export const ToInput = styled(Input)`
   padding-left: 52px;
 `;
 
-export const Button = styled.button<IGeneralProps>`
+export const Button = styled.button<TStylesProps>`
   padding: 14px 44px;
 
   font-weight: 600;

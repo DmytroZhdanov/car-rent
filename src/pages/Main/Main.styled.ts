@@ -1,14 +1,10 @@
 import styled from "@emotion/styled";
 
-import { ROUTER } from "App";
 import * as mainBackground from "utils/mainBackground.js";
-import { ITheme } from "styles";
+import { ROUTER } from "App";
+import { TStylesProps } from "shared.types";
 
-export interface IGeneralProps {
-  theme?: ITheme;
-}
-
-export const ContainerDiv = styled.div<IGeneralProps>`
+export const ContainerDiv = styled.div<TStylesProps>`
   width: 100%;
   padding: 0 20px;
 
@@ -27,7 +23,7 @@ export const ContainerDiv = styled.div<IGeneralProps>`
   }
 `;
 
-export const BackgroundDiv = styled.div<IGeneralProps & { pathname: string }>(
+export const BackgroundDiv = styled.div<TStylesProps & { pathname: string }>(
   ({ pathname, theme }) =>
     pathname === ROUTER.MAIN && {
       width: "100vw",
@@ -48,7 +44,7 @@ export const BackgroundDiv = styled.div<IGeneralProps & { pathname: string }>(
     }
 );
 
-export const UpButton = styled.button<IGeneralProps>`
+export const UpButton = styled.button<TStylesProps>`
   position: fixed;
   bottom: 80px;
   right: 20px;

@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 
-import { IGeneralProps } from "pages/Main/Main.styled";
+import { TStylesProps } from "shared.types";
 
-export const Button = styled.button<IGeneralProps>`
+export const Button = styled.button<TStylesProps>`
   display: block;
 
   font-weight: 500;
@@ -19,7 +19,7 @@ export const Button = styled.button<IGeneralProps>`
   }
 `;
 
-export const ErrorMessageP = styled.p<IGeneralProps>`
+export const ErrorMessageP = styled.p<TStylesProps>`
   width: 240px;
   padding: 48px 40px;
 

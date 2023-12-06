@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
-import { IGeneralProps } from "pages/Main/Main.styled";
 import { Link } from "react-router-dom";
 
-export const MenuDiv = styled.div<IGeneralProps>`
+import { TStylesProps } from "shared.types";
+
+export const MenuDiv = styled.div<TStylesProps>`
   position: fixed;
   top: 0;
   right: 0;

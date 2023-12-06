@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
-import { IGeneralProps } from "pages/Main/Main.styled";
 
-export const ModalBackdropDiv = styled.div<IGeneralProps>`
+import { TStylesProps } from "shared.types";
+
+export const ModalBackdropDiv = styled.div<TStylesProps>`
   background: ${({ theme }) => theme.color.backdropBackground};
   position: fixed;
   top: 0;
@@ -30,7 +31,7 @@ export const ModalBackdropDiv = styled.div<IGeneralProps>`
   }
 `;
 
-export const ModalDiv = styled.div<IGeneralProps & { type: string | undefined }>`
+export const ModalDiv = styled.div<TStylesProps & { type: string | undefined }>`
   position: fixed;
   top: 50%;
   left: 50%;
@@ -69,7 +70,7 @@ export const ModalDiv = styled.div<IGeneralProps & { type: string | undefined }>
   }
 `;
 
-export const CloseModalButton = styled.button<IGeneralProps>`
+export const CloseModalButton = styled.button<TStylesProps>`
   position: absolute;
   top: 8px;
   right: 8px;
