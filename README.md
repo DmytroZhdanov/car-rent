@@ -54,21 +54,37 @@ Selected language is saved when you reload the page for convenient usage.
 
 To run the application locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/DmytroZhdanov/car-rent.git`
-2. Install dependencies: `npm install`
-3. Run the app: `npm run dev`
-4. Open [http://localhost:5173](http://localhost:5173) in your browser (Note: the port may be
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/DmytroZhdanov/car-rent.git
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Run the app:
+   ```bash
+   npm run dev
+   ```
+5. Open [http://localhost:5173](http://localhost:5173) in your browser (Note: the port may be
    changed if 5173 port is occupied by another website).
-5. To stop your local server enter in CLI: `control` + `C` for Mac or `CNTRL` + `C` for Windows.
+6. To stop your local server enter in CLI: `control` + `C` for Mac or `CNTRL` + `C` for Windows.
+
 
 Or if you want to use Docker, follow these steps (Note: You must have installed Docker app on your
 computer):
 
 1. Open CLI and enter the command:
-   `docker run -d --rm -p 5173:[port] --name car-rent dmytrozhdanov/car-rent`.
-2. Open [http://localhost:[port]](http://localhost:[port]) in your browser.
-3. To stop your local server enter in CLI: `docker stop car-rent`. It will automatically delete the
-   container.  
+   ```bash
+   docker run -d --rm -p 5173:[port] --name car-rent dmytrozhdanov/car-rent
+   ```
+3. Open [http://localhost:[port]](http://localhost:[port]) in your browser.
+4. To stop your local server enter in CLI:
+   ```bash
+   docker stop car-rent
+   ```
+   It will automatically delete the container.
+  
    Replace `[port]` with desired port. You may replace it with the same `5173` port if it's not
    occupied currently by another website.
 
