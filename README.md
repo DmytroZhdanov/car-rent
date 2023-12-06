@@ -17,6 +17,7 @@ Website where you can find a car to rent.
 ## Routing
 
 The app uses React Router for navigation. The available routes are:
+
 - `/` - Home Page
 
 <img width="1470" alt="Знімок екрана 2023-11-16 о 15 58 02" src="https://github.com/DmytroZhdanov/car-rent/assets/119117057/f998342e-89ba-4adf-8717-3a8492df5a28">
@@ -45,7 +46,8 @@ If a user tries to access a non-existent route, they will be redirected to the h
 Implemented responsiveness and mobile menu for better UI.
 
 Implemented localization with possibility to choose language between English and Ukrainian.  
-On first loading language detector tries to detect the browser language and automatically use that language if such translation provided.  
+On first loading language detector tries to detect the browser language and automatically use that
+language if such translation provided.  
 Selected language is saved when you reload the page for convenient usage.
 
 ## Getting Started
@@ -55,21 +57,36 @@ To run the application locally, follow these steps:
 1. Clone the repository: `git clone https://github.com/DmytroZhdanov/car-rent.git`
 2. Install dependencies: `npm install`
 3. Run the app: `npm run dev`
-4. Open [http://localhost:5173](http://localhost:5173) in your browser (Note: the port may be changed if 5173 port is occupied by another
-   website).
+4. Open [http://localhost:5173](http://localhost:5173) in your browser (Note: the port may be
+   changed if 5173 port is occupied by another website).
+5. To stop your local server enter in CLI: `control` + `C` for Mac or `CNTRL` + `C` for Windows.
+
+Or if you want to use Docker, follow these steps (Note: You must have installed Docker app on your
+computer):
+
+1. Open CLI and enter the command:
+   `docker run -d --rm -p 5173:[port] --name car-rent dmytrozhdanov/car-rent`.
+2. Open [http://localhost:[port]](http://localhost:[port]) in your browser.
+3. To stop your local server enter in CLI: `docker stop car-rent`. It will automatically delete the
+   container.  
+   Replace `[port]` with desired port. You may replace it with the same `5173` port if it's not
+   occupied currently by another website.
 
 ## Technologies Used
 
 - React
+- TypeScript
 - Redux
 - RTK Query
 - React Router
 - Axios (for API requests)
 - Mockapi.io (for mock backend)
+- Docker
 
 ## API
 
-The application uses a mock API created with [Mockapi.io](https://mockapi.io/). The `adverts` resource contains information about car listings.
+The application uses a mock API created with [Mockapi.io](https://mockapi.io/). The `adverts`
+resource contains information about car listings.
 
 ## Redux State
 
