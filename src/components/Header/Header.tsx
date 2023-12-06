@@ -2,12 +2,12 @@ import { FC, MouseEvent, ReactElement, useEffect, useRef, useState } from "react
 import { Link } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 
-import LanguageSwitcher from "components/LanguageSwitcher/LanguageSwitcher";
-import MobileMenu from "components/MobileMenu/MobileMenu";
-import NavBar from "components/NavBar/NavBar";
-import { BackdropDiv, ContainerDiv, LogoLink, WrapperDiv } from "./Header.styled";
+import LanguageSwitcher from "components/LanguageSwitcher";
+import MobileMenu from "components/MobileMenu";
+import NavBar from "components/NavBar";
+import { BackdropDiv, ContainerDiv, LogoLink, WrapperDiv } from "components/Header";
 
-import sprite from "assets/sprite/sprite.svg";
+import sprite from "assets/sprite";
 import ROUTER from "utils/router";
 
 const Header: FC = (): ReactElement => {

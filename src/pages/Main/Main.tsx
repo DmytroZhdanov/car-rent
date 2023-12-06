@@ -3,11 +3,11 @@ import { Outlet, useLocation } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
 import { CSSTransition } from "react-transition-group";
 
-import Loader from "components/Loader/Loader";
-import Header from "components/Header/Header";
-import { BackgroundDiv, ContainerDiv, UpButton } from "./Main.styled";
+import Loader from "components/Loader";
+import Header from "components/Header";
+import { BackgroundDiv, ContainerDiv, UpButton } from "pages/Main";
 
-import sprite from "assets/sprite/sprite.svg";
+import sprite from "assets/sprite";
 
 const Main: FC = (): ReactElement => {
   const { pathname } = useLocation();

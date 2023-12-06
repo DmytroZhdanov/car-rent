@@ -1,18 +1,18 @@
 import { FC, ReactElement } from "react";
 import { useLocation } from "react-router-dom";
-
-import { TitleH1, WrapperDiv } from "./PageTitle.styled";
-
-import sprite from "assets/sprite/sprite.svg";
 import { useTranslation } from "react-i18next";
+
+import { TitleH1, WrapperDiv } from "components/PageTitle";
+
+import sprite from "assets/sprite";
+
+type Page = "catalog" | "favorite";
 
 const PageTitle: FC = (): ReactElement => {
   const { t } = useTranslation(["pageTitle"]);
 
   const { pathname } = useLocation();
   const page: string = pathname.slice(1, pathname.length);
-
-  type Page = "catalog" | "favorite";
 
   return (
     <WrapperDiv>

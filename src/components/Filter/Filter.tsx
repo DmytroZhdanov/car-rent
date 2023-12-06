@@ -2,8 +2,8 @@ import { FC, FormEvent, ReactElement, useState } from "react";
 import Select, { StylesConfig } from "react-select";
 import { useTranslation } from "react-i18next";
 
-import PriceControl from "components/PriceControl/PriceControl";
-import DropdownIndicator from "components/DropdownIndicator/DropdownIndicator";
+import PriceControl from "components/PriceControl";
+import DropdownIndicator from "components/DropdownIndicator";
 import {
   Button,
   Form,
@@ -15,29 +15,21 @@ import {
   MileageLabel,
   ToInput,
   WrapperDiv,
-} from "./Filter.styled";
+} from "components/Filter";
 
 import makers from "utils/makers";
+import { TFilter } from "shared.types";
 
-export type SelectOption = {
+type SelectOption = {
   value: string | null;
   label: string;
   selected?: boolean;
 };
 
-export type Filter = {
-  make: string | null;
-  price: string | null;
-  mileage: {
-    from: string;
-    to: string;
-  };
-};
-
-interface IFilterProps {
-  setFilter: (filter: Filter) => void;
+type TFilterProps = {
+  setFilter: (filter: TFilter) => void;
   setPage: (page: number) => void;
-}
+};
 
 /**
  * Generate Array of price options for Select component
@@ -56,7 +48,7 @@ const definePricesOptions = (min: number, max: number): SelectOption[] => {
   return pricesOptions;
 };
 
-const Filter: FC<IFilterProps> = ({ setFilter, setPage }): ReactElement => {
+const Filter: FC<TFilterProps> = ({ setFilter, setPage }): ReactElement => {
   const { t } = useTranslation(["filter"]);
 
   const [inputMake, setInputMake] = useState<string | null>(null);
@@ -82,7 +74,7 @@ const Filter: FC<IFilterProps> = ({ setFilter, setPage }): ReactElement => {
   const handleFilterSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    const filter = {
+    const filter: TFilter = {
       make: inputMake,
       price: inputPrice,
       mileage: {

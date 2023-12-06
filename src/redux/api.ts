@@ -1,13 +1,13 @@
 import { BaseQueryFn, createApi } from "@reduxjs/toolkit/query/react";
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
-import { ICar } from "./favorite/favoriteSlice";
+import { TCar } from "shared.types";
 
-interface IQuery {
+type IQuery = {
   page: number;
   make: string | null;
   language: string | undefined;
-}
+};
 
 interface IError {
   status?: number;
@@ -55,7 +55,7 @@ export const api = createApi({
     baseUrl: "https://654e0fd4cbc3253557424cbf.mockapi.io",
   }),
   endpoints: builder => ({
-    getAllCars: builder.query<ICar[], IQuery>({
+    getAllCars: builder.query<TCar[], IQuery>({
       query: ({ page = 1, make, language }) => ({
         url: `/adverts${language === "uk" ? "-uk" : ""}`,
         method: "get",

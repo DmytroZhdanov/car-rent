@@ -1,7 +1,7 @@
 import { FC, ReactElement } from "react";
 import { useTranslation } from "react-i18next";
 
-import { SwitchButton, SwitcherDiv } from "./LanguageSwitcher.styled";
+import { SwitchButton, SwitcherDiv } from "components/LanguageSwitcher";
 
 type Language = {
   nativeName: string;

@@ -1,15 +1,15 @@
 import { FC, ReactElement } from "react";
 import { useSelector } from "react-redux";
 
-import CarList from "components/CarList/CarList";
-import PageTitle from "components/PageTitle/PageTitle";
-import { ListWrapperDiv } from "./Favorite.styled";
+import CarList from "components/CarList";
+import PageTitle from "components/PageTitle";
+import { ListWrapperDiv } from "pages/Favorite";
 
 import { selectFavorites } from "../../redux/favorite/selectors";
-import { ICar } from "redux/favorite/favoriteSlice";
+import { TCar } from "shared.types";
 
 const Favorite: FC = (): ReactElement => {
-  const favorites: ICar[] = useSelector(selectFavorites);
+  const favorites: TCar[] = useSelector(selectFavorites);
 
   return (
     <>

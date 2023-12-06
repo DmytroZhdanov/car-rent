@@ -6,9 +6,9 @@ import { Global, ThemeProvider } from "@emotion/react";
 import "./localization/i18n";
 
 import App from "./App";
-import Loader from "components/Loader/Loader";
+import Loader from "components/Loader";
 
-import { GlobalStyles, theme } from "styles/index.js";
+import { GlobalStyles, theme } from "styles";
 import { persistor, store } from "./redux/store";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(

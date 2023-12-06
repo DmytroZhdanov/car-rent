@@ -1,9 +1,9 @@
 import { FC, ReactElement } from "react";
 import { components, DropdownIndicatorProps } from "react-select";
 
-import { Icon } from "./DropdownIndicator.styled";
+import { Icon } from "components/DropdownIndicator";
 
-import sprite from "assets/sprite/sprite.svg";
+import sprite from "assets/sprite";
 
 const DropdownIndicator: FC<DropdownIndicatorProps> = (props): ReactElement => (
   <components.DropdownIndicator {...props}>

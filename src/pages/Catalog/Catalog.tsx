@@ -1,23 +1,15 @@
 import { FC, ReactElement, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import CarList from "components/CarList/CarList";
-import Filter from "components/Filter/Filter";
-import PageTitle from "components/PageTitle/PageTitle";
-import Loader from "components/Loader/Loader";
-import BasicModalWindow from "components/BasicModalWindow/BasicModalWindow";
-import { Button, ErrorMessageP } from "./Catalog.styled";
+import CarList from "components/CarList";
+import Filter from "components/Filter";
+import PageTitle from "components/PageTitle";
+import Loader from "components/Loader";
+import BasicModalWindow from "components/BasicModalWindow";
+import { Button, ErrorMessageP } from "pages/Catalog";
 
-// import { useLazyGetAllCarsQuery } from "src/redux/api";
 import { useLazyGetAllCarsQuery } from "../../redux/api";
-
-import { ICar } from "redux/favorite/favoriteSlice";
-
-interface IFilter {
-  make: string | null;
-  price: string | null;
-  mileage: { from: string; to: string };
-}
+import { TCar, TFilter } from "shared.types";
 
 const Catalog: FC = (): ReactElement => {
   const { t, i18n } = useTranslation(["catalog"]);
@@ -25,10 +17,10 @@ const Catalog: FC = (): ReactElement => {
 
   const [showError, setShowError] = useState<boolean>(false);
   const [dataError, setDataError] = useState<any>();
-  const [cars, setCars] = useState<ICar[]>([]);
+  const [cars, setCars] = useState<TCar[]>([]);
   const [page, setPage] = useState<number>(1);
   const [isFinalPage, setIsFinalPage] = useState<boolean>(false);
-  const [filter, setFilter] = useState<IFilter>({
+  const [filter, setFilter] = useState<TFilter>({
     make: null,
     price: null,
     mileage: { from: "", to: "" },
@@ -50,9 +42,9 @@ const Catalog: FC = (): ReactElement => {
        * @param {Array} cars Array of Objects with advert's information
        * @returns Array of Objects with advert's information filtered by price and mileage ranges
        */
-      const filterCars = (cars: ICar[]): ICar[] => {
+      const filterCars = (cars: TCar[]): TCar[] => {
         return cars.filter(
-          (car: ICar) =>
+          (car: TCar) =>
             (filter.price
               ? +car.rentalPrice.slice(1, car.rentalPrice.length) <
                 +filter.price.slice(1, filter.price.length)
@@ -62,7 +54,7 @@ const Catalog: FC = (): ReactElement => {
         );
       };
 
-      const data: ICar[] = await fetchCars({ page, make: filter.make, language }).unwrap();
+      const data: TCar[] = await fetchCars({ page, make: filter.make, language }).unwrap();
 
       if (page === 1) {
         setCars(filterCars(data));

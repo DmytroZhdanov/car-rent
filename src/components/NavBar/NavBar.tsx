@@ -1,15 +1,15 @@
 import { FC, ReactElement } from "react";
 import { useTranslation } from "react-i18next";
 
-import { ContainerDiv, NavBarLink } from "./NavBar.styled";
+import { ContainerDiv, NavBarLink } from "components/NavBar";
 
 import ROUTER from "utils/router";
 
-interface INavBarProps {
+type TNavBarProps = {
   onClose?: () => void;
-}
+};
 
-const NavBar: FC<INavBarProps> = ({ onClose }): ReactElement => {
+const NavBar: FC<TNavBarProps> = ({ onClose }): ReactElement => {
   const { t } = useTranslation(["navBar"]);
 
   const handleClick = () => {

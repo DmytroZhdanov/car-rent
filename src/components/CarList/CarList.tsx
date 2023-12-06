@@ -2,14 +2,13 @@ import { FC, ReactElement } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import CarCard from "components/CarCard/CarCard";
-import { CatalogLink, DefaultMainTextP, DefaultTextWrapperDiv, ListUl } from "./CarList.styled";
+import CarCard from "components/CarCard";
+import { CatalogLink, DefaultMainTextP, DefaultTextWrapperDiv, ListUl } from "components/CarList";
 
 import ROUTER from "utils/router";
+import { TCar } from "shared.types";
 
-import { ICar } from "redux/favorite/favoriteSlice";
-
-const CarList: FC<{ cars: ICar[] }> = ({ cars }): ReactElement => {
+const CarList: FC<{ cars: TCar[] }> = ({ cars }): ReactElement => {
   const { t } = useTranslation(["carList"]);
 
   const { pathname } = useLocation();

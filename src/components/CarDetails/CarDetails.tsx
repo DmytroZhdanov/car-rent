@@ -13,11 +13,11 @@ import {
   TitleH2,
   TitleH3,
   TitleSpan,
-} from "./CarDetails.styled";
+} from "components/CarDetails";
 
-import { ICar } from "redux/favorite/favoriteSlice";
+import { TCar } from "shared.types";
 
-const CarDetails: FC<{ car: ICar }> = ({ car }): ReactElement => {
+const CarDetails: FC<{ car: TCar }> = ({ car }): ReactElement => {
   const {
     img,
     make,

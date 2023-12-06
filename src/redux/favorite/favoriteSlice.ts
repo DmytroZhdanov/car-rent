@@ -1,35 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export interface ICar {
-  img: string;
-  make: string;
-  model: string;
-  year: number;
-  rentalPrice: string;
-  address: string;
-  rentalCompany: string;
-  type: string;
-  id: number;
-  mileage: number;
-  accessories: string[];
-  fuelConsumption: string;
-  engineSize: string;
-  description: string;
-  functionalities: string[];
-  rentalConditions: string;
-}
+import { TCar } from "shared.types";
 
-interface IState {
-  favorite: ICar[];
-}
+type TState = {
+  favorite: TCar[];
+};
 
-export const initialState: IState = { favorite: [] };
+export const initialState: TState = { favorite: [] };
 
 const favoriteSlice = createSlice({
   name: "favorite",
   initialState,
   reducers: {
-    addToFavorite: (state, { payload }: PayloadAction<ICar>) => {
+    addToFavorite: (state, { payload }: PayloadAction<TCar>) => {
       state.favorite.push(payload);
     },
     removeFromFavorite: (state, { payload }: PayloadAction<number>) => {

@@ -2,18 +2,18 @@ import { FC, ReactElement, ReactNode, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { CSSTransition } from "react-transition-group";
 
-import { CloseModalButton, ModalDiv, ModalBackdropDiv } from "./BasicModalWindow.styled";
+import { CloseModalButton, ModalDiv, ModalBackdropDiv } from "components/BasicModalWindow";
 
-import sprite from "assets/sprite/sprite.svg";
+import sprite from "assets/sprite";
 
-interface IModalProps {
+type TModalProps = {
   isShown: boolean;
   type?: string;
   onClose: () => void;
   children: ReactNode;
-}
+};
 
-const BasicModalWindow: FC<IModalProps> = (props): ReactElement => {
+const BasicModalWindow: FC<TModalProps> = (props): ReactElement => {
   const { isShown = true, type, onClose, children } = props;
 
   const modalRoot = document.querySelector("#modal-root") as HTMLElement;

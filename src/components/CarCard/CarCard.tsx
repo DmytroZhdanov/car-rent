@@ -2,8 +2,8 @@ import { FC, ReactElement, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
-import BasicModalWindow from "components/BasicModalWindow/BasicModalWindow";
-import CarDetails from "components/CarDetails/CarDetails";
+import BasicModalWindow from "components/BasicModalWindow";
+import CarDetails from "components/CarDetails";
 import {
   Button,
   DetailsUl,
@@ -14,15 +14,14 @@ import {
   PriceP,
   TitleDiv,
   TitleSpan,
-} from "./CarCard.styled";
+} from "components/CarCard";
 
-import sprite from "assets/sprite/sprite.svg";
+import sprite from "assets/sprite";
 import { selectFavorites } from "../../redux/favorite/selectors";
 import { addToFavorite, removeFromFavorite } from "../../redux/favorite/favoriteSlice";
+import { TCar } from "shared.types";
 
-import { ICar } from "redux/favorite/favoriteSlice";
-
-const CarCard: FC<{ car: ICar }> = ({ car }): ReactElement => {
+const CarCard: FC<{ car: TCar }> = ({ car }): ReactElement => {
   const {
     img,
     make,
@@ -44,10 +43,10 @@ const CarCard: FC<{ car: ICar }> = ({ car }): ReactElement => {
 
   const dispatch = useDispatch();
 
-  const favorites: ICar[] = useSelector(selectFavorites);
+  const favorites: TCar[] = useSelector(selectFavorites);
 
   useEffect(() => {
-    setIsFavorite(favorites.findIndex((item: ICar) => item.id === id) !== -1);
+    setIsFavorite(favorites.findIndex((item: TCar) => item.id === id) !== -1);
   }, [favorites, id]);
 
   const handleFavoriteClick = () => {

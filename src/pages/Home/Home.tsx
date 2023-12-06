@@ -1,7 +1,7 @@
 import { FC, ReactElement } from "react";
 import { useTranslation } from "react-i18next";
 
-import { ActionP, ContainerDiv, DescriptionP, StartLink, TitleH1 } from "./Home.styled";
+import { ActionP, ContainerDiv, DescriptionP, StartLink, TitleH1 } from "pages/Home";
 
 import ROUTER from "utils/router";
 
